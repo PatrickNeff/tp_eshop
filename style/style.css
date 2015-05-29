@@ -1,0 +1,338 @@
+body {
+	padding-top: 70px;
+    padding-bottom: 203px
+}
+
+
+/*==============================
+	  BARRE DE NAVIGATION
+==============================*/
+.navbar-brand{
+	padding-top: 17px;
+	font-weight: bold;
+}
+
+.navbar-collapse
+{
+    font: 1.5em sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    color:white;
+}
+
+
+.navbar-collapse img
+{
+	height:100%;
+	padding: 0px 50px;
+	display: block;
+}
+
+.navbar-collapse ul
+{
+    display: table;
+    width: 600px;
+    margin: 0;
+    padding: 0;
+    background: #222;
+    border-radius: 3px;
+}
+
+.navbar-collapse ul li
+{
+    display: inline-block;
+}
+
+.navbar-collapse ul li a
+{
+    display: block;
+    text-align: center;
+    color: rgba(0, 255, 255, 1); 
+    text-decoration: none;
+    padding: 16px 8px 17px 8px;
+    text-shadow: 0 1px 0 rgba(180, 180, 180, .4);
+    transition: all .3s;
+    position: relative;
+} 
+
+
+.navbar-collapse ul li a:hover, .navbar-collapse ul li a:focus
+{
+    background: rgba(0,0,0,1);
+    text-shadow: 0 1px 0 rgba(180, 180, 180, .4);
+    color: rgba(0,0,0,1);
+}
+
+.navbar-collapse ul li:hover, .navbar-collapse ul li:focus
+{
+    display:inline-block;
+    background: rgba(0,0,0,1);
+    text-shadow: 0 1px 0 rgba(180, 180, 180, .4);
+    color:blue;
+    padding: 0px 25px 0px 25px;
+    transition: all .3s 0s;
+}
+
+.navbar-collapse ul li a:active
+{
+    background: linear-gradient(rgba(0,0,0,1),rgba(0,0,0,.9)); 
+    box-shadow: 0 0 2px rgba(0,0,0,1) inset;
+}
+
+.navbar-collapse ul li a::before
+{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 9px;
+    margin-left: -2px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(180,180,180,1);
+}
+
+.navbar-collapse ul li a:hover:before
+{
+    background: rgba(255,255,255,1);
+}
+
+
+
+/*==============================
+            ACCUEIL
+==============================*/
+
+.jumbotron p
+{
+    clear:both;
+}
+
+.jumbotron h1
+{
+    float:left;
+
+}
+
+.jumbotron .logo
+{
+    float:right;
+    max-width:40%;
+    max-height:40%;
+    border-radius: 10px;
+    
+}
+
+/*==============================
+			FOOTER
+==============================*/
+
+.social-list{
+    margin-top: 20px;
+}
+
+.social-list li{
+    display: inline-block;
+}
+
+.social{
+    width: 50px;
+    height: 46px;
+    display: inline-block;
+    background: url(./img/social-icons.png);
+}
+
+.social-fb{
+    background-position: 0 0;
+    margin-left: 20px;
+}
+.social-fb:hover{
+    background-position: 0 -47px;
+    margin-left: 20px;
+}
+
+.social-tw{
+    background-position: -51px 0;
+    margin-left: 20px;
+}
+.social-tw:hover{
+    background-position: -51px -47px;
+    margin-left: 20px;
+}
+
+.social-db{
+    background-position: -102px 0;
+    margin-left: 20px;    
+}
+
+.social-db:hover{
+    background-position: -102px -47px;
+    margin-left: 20px;
+}
+
+.social-rss{
+    background-position: -152px 0;
+    margin-left: 20px;
+}
+.social-rss:hover{
+    background-position: -152px -47px;
+    margin-left: 20px;
+}
+
+.footer {
+	background-color: #222222;
+	padding: 10px 0 50px 0;
+	color: #E3E3E3;
+    width:100%;
+    position:fixed;
+    bottom:0px;
+    center:0;
+    margin-top: 203px;
+
+}
+
+.footer h4 {
+	letter-spacing: 0.1em;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #5cb85c;
+	margin-bottom: 15px;
+}
+
+.footer ul{
+    padding-left: 0px;
+}
+
+.footer ul li{
+    list-style-type: none;
+}
+
+.footer ul li a{
+    color: #EEEEEE;
+}
+
+.footer ul li a:hover{
+    color: #00aeff;
+    text-decoration: none;
+}
+
+
+/*===================================
+	RESET SLIDER SETTINGS
+=====================================*/
+
+.bx-wrapper {
+    margin: 0;
+    margin-bottom: 30px;
+}
+
+.bx-wrapper .bx-viewport {
+    border: none;
+	left: 0;
+	box-shadow: 0 0 0;
+	background-color: transparent;
+}
+
+.carousel {
+	margin: 0;
+	padding: 0;
+}
+
+.clearfix{
+    clear: both;
+}
+
+.container-principal{
+    width: 1200px;
+    text-align: center;
+    margin-left: 100px;
+}
+.container{
+    width: 1060px;
+    margin: 0 auto;
+}
+
+.Identification, .message {
+    float:left;
+}
+
+.sliderTop label{
+        width: 180px;
+        margin-right: 10px;
+        float : left;
+        text-align: right;
+}
+
+.sliderTop input, textarea{
+        width: 340px;
+        float : right;
+}
+
+
+
+.sliderTop h2{
+    margin-left: 190px;
+    padding: 0;
+    font-size: 15px;
+    /*border-bottom: 1px solid black;*/
+    width: 100%;
+    text-align: left;
+}
+
+.sliderTop button{
+    position:relative;
+    width: 80px;
+}
+
+.sliderTop .champCom{
+    border: 3px solid #cccccc;
+    padding: 5px;
+    height:110px;
+
+}
+
+
+/*===================================
+    Style des formulaires
+=====================================*/
+
+.formconfig, .formregister {
+    margin-bottom: 15px;
+}
+
+
+/*===================================
+    Messages correct et erreur
+=====================================*/
+
+.no {
+    color: red;
+    text-align: center;
+}
+
+.ok {
+    color: green;
+    text-align: center;
+}
+
+
+/*===================================
+    Messages correct et erreur
+=====================================*/
+
+.news {
+    text-align: justify;
+    margin-top: 30px;
+}
+
+.news h2{
+    margin-left: 0;
+    padding: 0;
+    width: 100%;
+    font-size: 8px;
+    float: left;
+}
+
+.news h1 {
+    font-size: 35px;
+    margin-top: 0;
+}
