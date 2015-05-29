@@ -33,7 +33,7 @@ $path = 'http://'.$_SERVER['SERVER_NAME'].'/programmation/tp_eshop/';
 // Codes HTTP
 $httpCode = http_response_code();
 // Gestion des pages du site (MVC)
-$page = array('/home/index.php','/login/index.php','/register/index.php','/admin/index.php','/catalogue/index.php','/profile/index.php','/search/index.php','/panier/index.php','/process/index.php','/erreur/index.php');
+$page = array('/home/index','/login/index','/register/index','/admin/index','/catalogue/index','/profile/index','/search/index','/panier/index','/process/index','/erreur/indexS');
 if (isset($_GET['page']))
 {
 	if (in_array($_GET['page'],$page))
