@@ -1,0 +1,41 @@
+Git / GitHub - Bases
+GIT : https://try.github.io/levels/1/challenges/1
+
+-------------------------------------------------------
+# Installation
+
+sudo apt-get install git-core
+
+-------------------------------------------------------
+# Configuration
+
+git config --global color.diff auto
+git config --global color.status auto
+git config --global push.default current
+git config --global color.branch auto
+git config --global user.email "YOUREMAIL"
+git config --global user.name "YOURLOGIN"
+
+-------------------------------------------------------
+# Initialisation
+
+cd /le/chemin/de/votre/site
+git init
+git remote add origin VOTRE_URL
+git remote -v
+git fetch
+git checkout master
+git pull
+
+-------------------------------------------------------
+# Utilisation
+
+git add monfichier.txt
+git commit -a -m "Mon message"
+git pull
+git push
+
+Lors de l'ajout d'un fichier :
+git add FILE
+Si jamais vous savez pas où vous en êtes :
+git status
