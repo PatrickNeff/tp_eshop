@@ -33,7 +33,7 @@ $path = 'http://'.$_SERVER['SERVER_NAME'].'/programmation/tp_eshop/';
 // Codes HTTP
 $httpCode = http_response_code();
 // Gestion des pages du site (MVC)
-$page = array('home','login','register','admin','catalogue','profile','search','panier','process','erreur');
+$page = array('home','login','register','admin','catalogue','profile','search','panier','process','error');
 if (isset($_GET['page']))
 {
 	if (in_array($_GET['page'],$page))
@@ -50,21 +50,21 @@ else
 {
 	if ($httpCode == 400)
 	{
-		$pageName = 'erreur';
+		$pageName = 'error';
 		$codeErreur = $httpCode;
 		$codeTitle = 'Bad Request';
 		$codeMessage = 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing)';
 	}
 	elseif ($httpCode == 403)
 	{
-		$pageName = 'erreur';
+		$pageName = 'error';
 		$codeErreur = $httpCode;
 		$codeTitle = 'Forbidden';
 		$codeMessage = 'The request was a valid request, but the server is refusing to respond to it.';
 	}
 	elseif ($httpCode == 404)
 	{
-		$pageName = 'erreur';
+		$pageName = 'error';
 		$codeErreur = $httpCode;
 		$codeTitle = 'Not found';
 		$codeMessage = 'The requested resource could not be found but may be available again in the future.';
