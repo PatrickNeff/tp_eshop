@@ -1,6 +1,6 @@
 <?php
 session_start();
-$db = new PDO("mysql:dbname=tp_eshop;host=127.0.0.1", 'root', 'troiswa',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$db = new PDO("mysql:dbname=eshop;host=127.0.0.1", 'root', 'troiswa',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 // Sélection des permissions à chaque chargement de page en cas de modification
 if (isset($_SESSION['auth']))
 {
@@ -33,7 +33,7 @@ $path = 'http://'.$_SERVER['SERVER_NAME'].'/programmation/tp_eshop/';
 // Codes HTTP
 $httpCode = http_response_code();
 // Gestion des pages du site (MVC)
-$page = array('/home/index','/login/index','/register/index','/admin/index','/catalogue/index','/profile/index','/search/index','/panier/index','/process/index','/erreur/indexS');
+$page = array('home','login','register','admin','catalogue','profile','search','panier','process','erreur');
 if (isset($_GET['page']))
 {
 	if (in_array($_GET['page'],$page))
