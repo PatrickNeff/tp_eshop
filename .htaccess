@@ -1,0 +1,6 @@
+DirectoryIndex index.php
+ErrorDocument 400 /programmation/tp_eshop/index.php
+ErrorDocument 403 /programmation/tp_eshop/index.php
+ErrorDocument 404 /programmation/tp_eshop/index.php
+AddDefaultCharset UTF-8
+Options -Indexes
