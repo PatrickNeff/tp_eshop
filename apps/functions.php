@@ -52,6 +52,12 @@ function generation()
 }
 //___________________________
 //Pagination
+/*
+$pagin: page demandée en cliquant dessus, variable $_GET['']
+$nbPage: nombre de pages affichées (calculé à partir d'un SELECT COUNT(*))
+$nb: nombre de pages affichées au début et à la fin. Ex $nb = 3 => 1,2,3,...,8,9,10 si $nbPage vaut 10
+$toward: adresse URL de la page cliquée sous forme $_GET['']
+*/
 function pagination($pagin, $nbPage, $nb, $toward)
 {
 	$list_page = array();
