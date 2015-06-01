@@ -1,6 +1,6 @@
 <?php
 session_start();
-$db = new PDO("mysql:dbname=tp_eshop;host=127.0.0.1", 'root', 'troiswa',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$db = new PDO("mysql:dbname=eshop;host=127.0.0.1", 'root', 'troiswa',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 // Sélection des permissions à chaque chargement de page en cas de modification
 if (isset($_SESSION['auth']))
 {
@@ -33,7 +33,7 @@ $path = 'http://'.$_SERVER['SERVER_NAME'].'/programmation/tp_eshop/';
 // Codes HTTP
 $httpCode = http_response_code();
 // Gestion des pages du site (MVC)
-$page = array('/home/index','/login/index','/register/index','/admin/index','/catalogue/index','/profile/index','/search/index','/panier/index','/process/index','/erreur/indexS');
+$page = array('home','login','register','admin','catalogue','profile','search','panier','process','error');
 if (isset($_GET['page']))
 {
 	if (in_array($_GET['page'],$page))
@@ -50,21 +50,21 @@ else
 {
 	if ($httpCode == 400)
 	{
-		$pageName = 'erreur';
+		$pageName = 'error';
 		$codeErreur = $httpCode;
 		$codeTitle = 'Bad Request';
 		$codeMessage = 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing)';
 	}
 	elseif ($httpCode == 403)
 	{
-		$pageName = 'erreur';
+		$pageName = 'error';
 		$codeErreur = $httpCode;
 		$codeTitle = 'Forbidden';
 		$codeMessage = 'The request was a valid request, but the server is refusing to respond to it.';
 	}
 	elseif ($httpCode == 404)
 	{
-		$pageName = 'erreur';
+		$pageName = 'error';
 		$codeErreur = $httpCode;
 		$codeTitle = 'Not found';
 		$codeMessage = 'The requested resource could not be found but may be available again in the future.';
