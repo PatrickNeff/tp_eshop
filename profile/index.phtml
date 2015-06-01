@@ -1,0 +1,73 @@
+<div class="container">
+	<div class="row">
+
+
+		<div class="col-md-6 col-sd-12" id="rechargeform">
+			<form method="post" action="">
+				<fieldset>                
+
+					<legend>Nouvelles informations :</legend>
+
+					<div class="form-group">
+                        <label for="formemail" class="col-md-5 control-label formconfig">Email : </label>
+                        <div class="col-md-7">
+                        	<input type="email" name="formemail"  id="formemail" value="<?=$email?>" placeholder="" maxlength="64" class="form-control formconfig">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="newphone" class="col-md-5 control-label formconfig">Téléphone : </label>
+                        <div class="col-md-7">
+                        	<input type="text" name="formphone"  id="newphone" value="<?=$phone?>" placeholder="" maxlength="16" class="form-control formconfig">
+                        </div>
+                    </div>
+                    <br>
+
+                    <button type="submit" name="validation" class="col-md-12 formconfig">Changer mes données</button>
+                    
+
+				</fieldset>
+			</form>
+		</div>
+
+		<div class="col-md-6 col-sd-12">
+			<form method="post" action="">
+				<fieldset>
+
+					<legend>Changement de mot de passe :</legend>
+
+					<div class="form-group">
+                        <label for="ancienpassword" class="col-md-5 control-label formconfig">Ancien mot de passe : </label>
+                        <div class="col-md-7">
+                        	<input type="password" name="ancienpassword"  id="ancienpassword" value="" placeholder="<?=$pass?>" maxlength="32" class="form-control formconfig">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="nouveaupassword" class="col-md-5 control-label formconfig">Nouveau mot de passe : </label>
+                        <div class="col-md-7">
+                        	<input type="password" name="nouveaupassword"  id="nouveaupassword" value="" placeholder="Entrer votre nouveau mot de passe" maxlength="32" class="form-control formconfig">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="confirmpassword" class="col-md-5 control-label formconfig">Confirmation de mot de passe : </label>
+                        <div class="col-md-7">
+                        	<input type="password" name="confirmpassword"  id="confirmpassword" value="" placeholder="Confirmer votre nouveau mot de passe" maxlength="32" class="form-control formconfig">
+                        </div>
+                    </div>
+                    <br>
+                    
+                    <button type="submit" name="validationmdp" class="col-md-12 formconfig">Modifier le mot de passe</button>
+
+				</fieldset>
+
+
+			</form>
+
+		</div>
+	</div>
+</div>
