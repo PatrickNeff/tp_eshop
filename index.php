@@ -1,6 +1,6 @@
 <?php
 session_start();
-$db = new PDO("mysql:dbname=eshop;host=127.0.0.1", 'root', 'troiswa',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$db = new PDO("mysql:dbname=tp_eshop;host=127.0.0.1", 'root', 'troiswa',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 // Sélection des permissions à chaque chargement de page en cas de modification
 if (isset($_SESSION['auth']))
 {
@@ -29,7 +29,7 @@ require('apps/functions.php');
 // Page exécutée en...
 $displayStart = generation();
 // Chemin absolu et configuration serveur
-$path = 'http://'.$_SERVER['SERVER_NAME'].'/programmation/tp_eshop/';
+$path = 'http://'.$_SERVER['SERVER_NAME'].'/tp-ecommerce/';
 // Codes HTTP
 $httpCode = http_response_code();
 // Gestion des pages du site (MVC)
