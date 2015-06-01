@@ -1,6 +1,22 @@
 <?php
+require('apps/config.php');
 session_start();
+<<<<<<< HEAD
 $db = new PDO("mysql:dbname=tp_eshop;host=127.0.0.1", 'root', 'troiswa',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+=======
+//$db = new PDO("mysql:dbname=filrouge;host=127.0.0.1;charset=UTF8", "root", "troiswa");
+//$db->exec("SET CHARACTER SET utf8");
+try
+{
+	$db = new PDO('mysql:dbname='.$dbname.';host='.$host.';charset='.$charset, $dblogin, $dbpwd);
+	$db->exec("SET CHARACTER SET utf8");
+}
+catch(Exception $get)
+{
+    print_r($get);
+    die();
+}
+>>>>>>> master
 // Sélection des permissions à chaque chargement de page en cas de modification
 if (isset($_SESSION['auth']))
 {
@@ -15,21 +31,15 @@ if (isset($_GET['session']) && $_GET['session'] == 'logout')
 	session_destroy(); // Destruction de la session
 	$_SESSION['message'] = '<div class="alert alert-success" role="alert">Vous êtes maintenant déconnecté</div>';
 }
-// Constantes pour permissions
-define ('PUBLIER_CONTENU',         0x01);
-define ('MODIFIER_CONTENU',        0x02);
-define ('SUPPRIMER_CONTENU',       0x04);
-define ('VALIDER_TOUT_CONTENU',    0x08);
-define ('MODIFIER_TOUT_CONTENU',   0x10);
-define ('SUPPRIMER_TOUT_CONTENU',  0x20);
-define ('GERER_MEMBRES',           0x40);
-define ('GERER_PERMISSIONS',       0x80);
 // Liste des fonctions principales
 require('apps/functions.php');
 // Page exécutée en...
 $displayStart = generation();
+<<<<<<< HEAD
 // Chemin absolu et configuration serveur
 $path = 'http://'.$_SERVER['SERVER_NAME'].'/tp-ecommerce/';
+=======
+>>>>>>> master
 // Codes HTTP
 $httpCode = http_response_code();
 // Gestion des pages du site (MVC)
