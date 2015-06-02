@@ -4,6 +4,9 @@
 $email = '';
 $phone = '';
 
+/*-------------------------------
+Affichage des infos de profil
+---------------------------------*/
 
 if (isset($_SESSION['auth'])) //isset($_GET["id"]))
 {
@@ -16,6 +19,9 @@ if (isset($_SESSION['auth'])) //isset($_GET["id"]))
 	$pass = $utilisateur['password'];
 
 
+/*-------------------------------
+Modification des infos de profil
+---------------------------------*/
 
 	if (isset($_POST['validation']))
 	{
@@ -83,6 +89,10 @@ Modification du mot de passe
 		}
 	}
 
+/*-------------------------------
+Réactualisation des infos de profil
+---------------------------------*/
+
 	// Réactualisation des champs du formulaire
 	$sql = "SELECT * FROM client WHERE id='".$identifiant."'";
 	//exécution de la requête:
@@ -90,14 +100,13 @@ Modification du mot de passe
 	$email = $utilisateur['email'];
 	$phone = $utilisateur['phone'];
 	$pass = $utilisateur['password'];
-	require('./views/config.phtml');
+	require('index.phtml');
 
 }
 
 else
 {
-	echo "<p class='no'>L'identifiant en question n'existe pas !</p>";
-	require('./views/config.phtml');
+	echo "<div class='alert alert-danger' role='alert'>Vous devez vous connecter pour accéder à cette page !</div>";
 }
 
 

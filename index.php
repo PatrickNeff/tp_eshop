@@ -14,13 +14,13 @@ catch(Exception $get)
 // Sélection des permissions à chaque chargement de page en cas de modification
 if (isset($_SESSION['auth']))
 {
-	$selectPermissions = $db->query("SELECT groupe.permissions FROM groupe JOIN client ON client.id_groupe = groupe.id WHERE client.id = ".$_SESSION['id'])->fetch(PDO::FETCH_ASSOC);
-	$_SESSION['permissions'] = $selectPermissions['permissions'];
+	$selectPermissions = $db->query("SELECT permission.perms FROM permission JOIN client ON client.permission_id = permission.id_permission WHERE client.id = ".$_SESSION['id'])->fetch(PDO::FETCH_ASSOC);
+	$_SESSION['permissions'] = $selectPermissions['perms'];
 }
 // Déconnexion
 if (isset($_GET['session']) && $_GET['session'] == 'logout')
 {
-	$db->exec("UPDATE member SET time_update = NOW() WHERE id = ".$_SESSION['id']); // Update date dernière visite du membre
+	$db->exec("UPDATE client SET time_update = NOW() WHERE id = ".$_SESSION['id']); // Update date dernière visite du membre
 	$_SESSION = array(); // Destruction des variables de session
 	session_destroy(); // Destruction de la session
 	$_SESSION['message'] = '<div class="alert alert-success" role="alert">Vous êtes maintenant déconnecté</div>';
