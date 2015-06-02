@@ -13,5 +13,6 @@ if (isset($_SESSION['auth']) && $_SESSION['auth'] == true)
 	{
 		$logLink .= '<li class="navbar-admin"><a href=index.php?page=admin_home>Admin</a></li>';
 	}
-}require('./views/header.phtml');
+}
+require('./views/header.phtml');
 ?>
