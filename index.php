@@ -1,9 +1,7 @@
 <?php
 require('apps/config.php');
 session_start();
-<<<<<<< HEAD
-$db = new PDO("mysql:dbname=tp_eshop;host=127.0.0.1", 'root', 'troiswa',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-=======
+
 //$db = new PDO("mysql:dbname=filrouge;host=127.0.0.1;charset=UTF8", "root", "troiswa");
 //$db->exec("SET CHARACTER SET utf8");
 try
@@ -13,33 +11,29 @@ try
 }
 catch(Exception $get)
 {
-    print_r($get);
-    die();
+	print_r($get);
+	die();
 }
->>>>>>> master
+
 // Sélection des permissions à chaque chargement de page en cas de modification
-if (isset($_SESSION['auth']))
+/*if (isset($_SESSION['auth']))
 {
-	$selectPermissions = $db->query("SELECT groupe.permissions FROM groupe JOIN member ON member.id_groupe = groupe.id WHERE member.id = ".$_SESSION['id'])->fetch(PDO::FETCH_ASSOC);
+	$selectPermissions = $db->query("SELECT groupe.permissions FROM groupe JOIN client ON client.id_groupe = groupe.id WHERE client.id = ".$_SESSION['id'])->fetch(PDO::FETCH_ASSOC);
 	$_SESSION['permissions'] = $selectPermissions['permissions'];
-}
+}*/
 // Déconnexion
-if (isset($_GET['session']) && $_GET['session'] == 'logout')
+/*if (isset($_GET['session']) && $_GET['session'] == 'logout')
 {
 	$db->exec("UPDATE member SET time_update = NOW() WHERE id = ".$_SESSION['id']); // Update date dernière visite du membre
 	$_SESSION = array(); // Destruction des variables de session
 	session_destroy(); // Destruction de la session
 	$_SESSION['message'] = '<div class="alert alert-success" role="alert">Vous êtes maintenant déconnecté</div>';
-}
+}*/
 // Liste des fonctions principales
 require('apps/functions.php');
 // Page exécutée en...
 $displayStart = generation();
-<<<<<<< HEAD
-// Chemin absolu et configuration serveur
-$path = 'http://'.$_SERVER['SERVER_NAME'].'/tp-ecommerce/';
-=======
->>>>>>> master
+
 // Codes HTTP
 $httpCode = http_response_code();
 // Gestion des pages du site (MVC)
