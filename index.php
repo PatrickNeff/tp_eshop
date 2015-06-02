@@ -20,7 +20,7 @@ if (isset($_SESSION['auth']))
 // Déconnexion
 if (isset($_GET['session']) && $_GET['session'] == 'logout')
 {
-	$db->exec("UPDATE member SET time_update = NOW() WHERE id = ".$_SESSION['id']); // Update date dernière visite du membre
+	$db->exec("UPDATE client SET time_update = NOW() WHERE id = ".$_SESSION['id']); // Update date dernière visite du membre
 	$_SESSION = array(); // Destruction des variables de session
 	session_destroy(); // Destruction de la session
 	$_SESSION['message'] = '<div class="alert alert-success" role="alert">Vous êtes maintenant déconnecté</div>';
