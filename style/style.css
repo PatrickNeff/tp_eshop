@@ -24,7 +24,7 @@ body {
 	padding-bottom: 8px;
 	border-bottom: 1px solid #5cb85c;
 	margin-bottom: 15px;
-
+}
 
 /*===================================
 	RESET SLIDER SETTINGS
@@ -69,6 +69,51 @@ body {
     Style des formulaires
 =====================================*/
 
+.panel-success > .panel-heading {
+    color: #ffffff;
+    background-color: #5cb85c;
+}
+
+.panel-success, .panel-success > .panel-heading {
+    border-color: #449d44;
+}
+
 .formconfig, .formregister {
     margin-bottom: 15px;
+}
+
+/*===================================
+    NAVIGATION
+=====================================*/
+
+.navbar-register a, .navbar-login-profile a, .navbar-logout a, .navbar-admin a {
+    color: #ffffff;
+    border-left: 1px solid #222222;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    text-decoration: underline;
+}  
+
+.navbar-register {
+    background-color: #337ab7;
+}
+
+.navbar-login-profile {
+    background-color: #5cb85c;
+}
+
+.navbar-logout {
+    background-color: #d9534f;
+}
+
+.navbar-admin {
+    background-color: #5bc0de;
+}
+
+.pagin {
+    padding: 0 4px;
 }

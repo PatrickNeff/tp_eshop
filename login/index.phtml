@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-12">
+        <?= $message ?>
+        <header class="page-header">
+            <h1>Se connecter <small></small></h1>
+        </header>
+        <p>Les champs marqués d'un * sont obligatoires</p>
+        <form action="index.php?page=login" method="post">
+            <div class="panel panel-success">
+    			<div class="panel-heading">
+    			    <h3 class="panel-title">Informations de connexion</h3>
+    			</div>
+                <div class="panel-body">
+                    <!-- Login -->
+                    <div class="form-group">
+                        <label for="champLogin" class="col-sm-2 control-label">Pseudo : </label>
+                        <div class="col-sm-10">
+                            <input type="text" name="login"  value="<?php echo strip_tags($login) ?>" id="champLogin" placeholder="*" maxlength="32" class="form-control">
+                        </div>
+                    </div>   
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for="champPassword" class="col-sm-2 control-label">Mot de passe : </label>
+                        <div class="col-sm-10">
+                            <input type="password" name="password"  id="champPassword" value="<?php echo strip_tags($password) ?>" placeholder="*" maxlength="32" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-success" name="log-in">Se connecter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

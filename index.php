@@ -14,8 +14,8 @@ catch(Exception $get)
 // Sélection des permissions à chaque chargement de page en cas de modification
 if (isset($_SESSION['auth']))
 {
-	$selectPermissions = $db->query("SELECT groupe.permissions FROM groupe JOIN member ON member.id_groupe = groupe.id WHERE member.id = ".$_SESSION['id'])->fetch(PDO::FETCH_ASSOC);
-	$_SESSION['permissions'] = $selectPermissions['permissions'];
+	$selectPermissions = $db->query("SELECT permission.perms FROM permission JOIN client ON client.permission_id = permission.id_permission WHERE client.id = ".$_SESSION['id'])->fetch(PDO::FETCH_ASSOC);
+	$_SESSION['permissions'] = $selectPermissions['perms'];
 }
 // Déconnexion
 if (isset($_GET['session']) && $_GET['session'] == 'logout')
