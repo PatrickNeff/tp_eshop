@@ -32,9 +32,13 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>-->
       <form class="navbar-form navbar-right">
+    <a href="index.php?page=search"><button type="button" class="btn btn-primary b_search">Recherche</button></a>
 		<a href="index.php?page=register"><button type="button" class="btn btn-primary">Register</button></a>
     <a href="index.php?page=login"><button type="button" class="btn btn-primary">Login</button></a>
       </form>
+      <form class="navbar-form navbar-right" action="index.php?page=search" method="Post">
+            <input type="search" class="i_search" name="search" size="32" placeholder="Entrez votre recherche" required />
+    </form>
     </div><!-- /.navbar-collapse -->
 	</div>
 </nav>
