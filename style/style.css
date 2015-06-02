@@ -85,7 +85,7 @@ body {
     width: 60px;
     height: 20px;
     background-color: transparent;
-    color: #337AB7;
+    color: #FF5564;
     font-weight: bold;
     border: none;
     box-shadow: none; 
@@ -94,5 +94,5 @@ body {
 
 .search:focus{
     width: 250px;
-    border-bottom: solid 1px #337AB7;
+    border-bottom: solid 1px #FF5564;
 }
