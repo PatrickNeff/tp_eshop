@@ -11,14 +11,6 @@ if (isset($_POST['lastname'])) { $lastname = $_POST["lastname"]; }
 else { $lastname = ""; } 
 if (isset($_POST['email'])) { $email = $_POST["email"]; }
 else { $email = ""; }
-if (isset($_POST['street'])) { $street = $_POST["street"]; }
-else { $street = ""; }
-if (isset($_POST['zipcode'])) { $zipcode = $_POST["zipcode"]; }
-else { $zipcode = ""; }
-if (isset($_POST['city'])) { $city = $_POST["city"]; }
-else { $city = ""; }
-if (isset($_POST['country'])) { $country = $_POST["country"]; }
-else { $country = ""; }
 if (isset($_POST['phone'])) { $phone = $_POST["phone"]; }
 else { $phone = ""; }
 $captcha = "";
@@ -38,10 +30,6 @@ if (isset($_POST['register']))
                     "firstname" => "firstname",
                     "lastname" => "lastname",
                     "email" => "email",
-                    "street" => "street",
-                    "zipcode" => "zipcode",
-                    "city" => "city",
-                    "country" => "country",
                     "phone" => "phone",                
                     "captcha" => "captcha");
     /*** verif 1 : champs vides ***/
@@ -87,30 +75,6 @@ if (isset($_POST['register']))
                 $badFormat[] = "prenom";
             }
         }
-        // vérif si le champs street ne contient que des lettres, des chiffres, tiret, apostrophes et espaces
-        if (isset($_POST['street'])) {
-            if (!preg_match("/^[A-Za-z0-9' -]{0,64}$/", $street )) {
-                $badFormat[] = "street";
-            }
-        }
-            // vérif si le champs zipcode ne contient que des chiffres et 5 au max
-        if (isset($_POST['zipcode'])) {
-            if ((strlen($zipcode) > 5)) { //|| (!is_nan($zipcode) )) {
-                $badFormat[] = "zipcode";
-            }
-        }
-        // vérif si le champs city ne contient que des lettres, tiret, apostrophes et espaces
-        if (isset($_POST['city'])) {
-            if (!preg_match("/^[A-Za-z' -]{0,32}$/", $city )) {
-                $badFormat[] = "city";
-            }
-        }
-        // vérif si le champs country ne contient que des lettres, tiret, apostrophes et espaces
-        if (isset($_POST['country'])) {
-            if (!preg_match("/^[A-Za-z' -]{0,32}$/", $country )) {
-                $badFormat[] = "country";
-            }
-        }
         // vérif si le champs phone ne contient que des chiffres, des espaces, des points et des tirets
         if (isset($_POST['phone'])) {
             if (!preg_match("/^[0-9. -]{0,20}$/", $phone )) {
@@ -153,15 +117,11 @@ if (isset($_POST['register']))
         $civility = trim($civility); 
         $firstname = trim($firstname);
         $lastname = trim($lastname); 
-        $street = trim($street);
-        $zipcode = trim($zipcode);
-        $city = trim($city); 
-        $country = trim($country);
         $phone = trim($phone);
-        $id_groupe = 1;// Défaut groupe avec permissions minimales
+        $permission_id = 1;// Défaut groupe avec permissions minimales
 
     	/*** verif doublon ***/ 
-        $request2 = $db->query("SELECT COUNT(*) AS loginMatch FROM member WHERE pseudo = ".$db->quote($login))->fetch(PDO::FETCH_ASSOC);
+        $request2 = $db->query("SELECT COUNT(*) AS loginMatch FROM client WHERE pseudo = ".$db->quote($login))->fetch(PDO::FETCH_ASSOC);
         if ($request2['loginMatch'] > 0)
         {
             $message = '<div class="alert alert-danger" role="alert">Login déjà existant, veuillez en choisir un autre</div>'; 
@@ -170,25 +130,21 @@ if (isset($_POST['register']))
         if ($champsOK == true)
         {
             /*** formattage 2 : insertion avec pdo::quote qui vas gérer les quotes qui peuvent trainer ***/
-            $request = 'INSERT INTO member(pseudo, password, civility, firstname, lastname, email, street, zipcode, city, country, phone, id_groupe, time_register) 
+            $request1 = 'INSERT INTO client(pseudo, password, civility, firstname, lastname, email, phone, permission_id, time_register) 
                         VALUES('. $db->quote($login)     .', 
                                '. $db->quote($password)  .', 
                                '. $db->quote($civility)  .', 
                                '. $db->quote($firstname) .', 
                                '. $db->quote($lastname)  .', 
                                '. $db->quote($email)     .',                       
-                               '. $db->quote($street)    .', 
-                               '. $db->quote($zipcode)   .', 
-                               '. $db->quote($city)      .', 
-                               '. $db->quote($country)   .', 
                                '. $db->quote($phone)     .',
-                               '.$id_groupe.', 
+                               '.$permission_id.', 
                                 NOW() )';
             // faire un strtotime quand on récupère la donnée
-            $db->exec($request);
+            $db->exec($request1);
             $_SESSION['message'] = '<div class="alert alert-success" role="alert">Vous avez bien été enregistré</div>';
-            header('Location: index.php?page=process');
-            die();
+            //header('Location: index.php?page=process');
+            //die();
         }
     }
 }

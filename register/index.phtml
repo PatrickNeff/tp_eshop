@@ -75,47 +75,9 @@
                 <div class="form-group">              
                     <label for="captcha" class="col-sm-2 control-label">Recopiez le mot : "<?= $captchaGen; ?>"</label>
                     <div class="col-sm-10">
-                        <input type="text" name="captcha" id="captcha" value="<?= strip_tags($captcha) ?>" maxlength="6" class="form-control"/><br />
+                        <input type="text" name="captcha" id="captcha" value="<?= strip_tags($captcha) ?>" maxlength="6" class="form-control" placeholder="*" /><br />
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Adresse principale (adresse par défaut, peut être changée ultérieurement)</h3>
-            </div>
-            <div class="panel-body">
-                <!-- street -->                         
-                <div class="form-group">
-                    <label for="champStreet" class="col-sm-2 control-label">N° et nom de rue : </label>
-                    <div class="col-sm-10">
-                        <input type="text" name="street"  value="<?= strip_tags($street) ?>" id="champStreet" maxlength="64" placeholder="*" class="form-control">
-                    </div>
-                 </div>
-
-                <!-- zipcode -->                         
-                <div class="form-group">
-                    <label for="champZipcode" class="col-sm-2 control-label">Code postal : </label>
-                    <div class="col-sm-10">
-                        <input type="text" name="zipcode"  value="<?= strip_tags($zipcode) ?>" id="champZipcode" maxlength="16" placeholder="*" class="form-control">
-                    </div>
-                 </div>
-
-                <!-- City -->
-                <div class="form-group">
-                    <label for="champCity" class="col-sm-2 control-label">Ville : </label>
-                    <div class="col-sm-10">
-                        <input type="text" name="city"  id="champCity" value="<?= strip_tags($city) ?>" maxlength="32" placeholder="*" class="form-control">
-                    </div>
-                 </div>
-
-                <!-- Country -->
-                <div class="form-group">
-                    <label for="champCountry" class="col-sm-2 control-label">Pays : </label>
-                    <div class="col-sm-10">
-                        <input type="text" name="country"  id="champCountry" value="<?= strip_tags($country) ?>" maxlength="32" placeholder="*" class="form-control">
-                    </div>
-                 </div>
             </div>
         </div>
         <div class="row">

@@ -1,8 +1,6 @@
 <?php
 require('apps/config.php');
 session_start();
-//$db = new PDO("mysql:dbname=filrouge;host=127.0.0.1;charset=UTF8", "root", "troiswa");
-//$db->exec("SET CHARACTER SET utf8");
 try
 {
 	$db = new PDO('mysql:dbname='.$dbname.';host='.$host.';charset='.$charset, $dblogin, $dbpwd);
