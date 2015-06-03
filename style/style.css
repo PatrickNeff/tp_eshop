@@ -25,6 +25,58 @@ body {
 	margin-bottom: 15px;
 }
 
+.social-list{
+    margin-top: 20px;
+}
+
+.social-list li{
+    display: inline-block;
+}
+
+.social{
+    width: 50px;
+    height: 46px;
+    display: inline-block;
+    background: url(../images/social-icons.png);
+}
+
+.social-fb{
+    background-position: 0 0;
+    margin-left: 0px;
+}
+.social-fb:hover{
+    background-position: 0 -47px;
+    margin-left: 0px;
+}
+
+.social-tw{
+    background-position: -51px 0;
+    margin-left: 15px;
+}
+.social-tw:hover{
+    background-position: -51px -47px;
+    margin-left: 15px;
+}
+
+.social-db{
+    background-position: -102px 0;
+    margin-left: 15px;    
+}
+
+.social-db:hover{
+    background-position: -102px -47px;
+    margin-left: 15px;
+}
+
+.social-rss{
+    background-position: -152px 0;
+    margin-left: 15px;
+}
+.social-rss:hover{
+    background-position: -152px -47px;
+    margin-left: 15px;
+}
+
 /*===================================
 	RESET SLIDER SETTINGS
 =====================================*/

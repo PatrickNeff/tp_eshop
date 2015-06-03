@@ -6,7 +6,7 @@ class db{
 	private $password = '';
 	private $database = 'tuto';
 	private $db;
-
+	
 	public function __construct($host = null, $username = null, $password = null, $database = null){
 		if($host != null){
 			$this->host = $host;
@@ -14,9 +14,9 @@ class db{
 			$this->password = $password;
 			$this->database = $database;
 		}
-
+echo var_dump();
 		try{
-			$this->db = new PDO("mysql:dbname=tp_eshop;host=localhost", 'root', 'troiswa',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)));
+			$this->db = new PDO("mysql:dbname=tp_eshop;host=localhost", 'root', 'troiswa');
 		}catch(PDOException $e){
 			die('<h1>Impossible de se connecter a la base de donnee</h1>');
 		}
@@ -24,7 +24,7 @@ class db{
 
 	}
 
-	public function query($sql, $data = array()){
+	function query($sql, $data = array()){
 		$req =$this->db->prepare($sql);
 		$req->execute($data);
 		return $req->fetchAll(PDO::FETCH_OBJ);
