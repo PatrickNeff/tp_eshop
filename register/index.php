@@ -145,8 +145,8 @@ echo ($request1);
             // faire un strtotime quand on récupère la donnée
             $db->exec($request1);
             $_SESSION['message'] = '<div class="alert alert-success" role="alert">Vous avez bien été enregistré</div>';
-            //header('Location: index.php?page=process');
-            //die();
+            header('Location: index.php?page=process');
+            die();
         }
     }
 }
