@@ -32,6 +32,21 @@ $displayStart = generation();
 // Codes HTTP
 $httpCode = http_response_code();
 // Gestion des pages du site (MVC)
+
+
+
+// =====>	CODE MOCHE	<=====
+//*********************************************
+if (isset($_GET['ajax']))
+{
+	$pageName = $_GET['ajax'];
+	require($pageName.'/index.php');
+	die();
+}
+//*********************************************
+
+
+
 $page = array('home','login','register','admin','catalogue','profile','search','panier','process','error');
 if (isset($_GET['page']))
 {
