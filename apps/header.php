@@ -9,9 +9,9 @@ else
 }
 if (isset($_SESSION['auth']) && $_SESSION['auth'] == true)
 {
-	if (($_SESSION['permissions'] & GERER_CLIENT) OR ($_SESSION['permissions'] & GERER_PERMISSION))
+	if ($_SESSION['permissions'] & EDITER_PERMISSION)
 	{
-		$logLink .= '<li class="navbar-admin"><a href=index.php?page=admin_home>Admin</a></li>';
+		$logLink .= '<li class="navbar-admin"><a href=index.php?page=admin>Admin</a></li>';
 	}
 }
 require('./views/header.phtml');

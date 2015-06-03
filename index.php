@@ -33,15 +33,31 @@ $displayStart = generation();
 $httpCode = http_response_code();
 // Gestion des pages du site (MVC)
 $page = array('home','login','register','admin','catalogue','profile','search','panier','process','error');
+$admin = array('permission');
 if (isset($_GET['page']))
 {
 	if (in_array($_GET['page'],$page))
 	{
-		$pageName = $_GET['page'];
+		if (isset($_GET['admin']))
+		{
+			if (in_array($_GET['admin'],$admin))
+			{
+				$pageName = $_GET['page'].'/'.$_GET['admin'];
+			}
+			else
+			{
+				$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Désolé, la page d\'administration que vous recherché n\'existe pas.</div>';
+				$pageName = 'process';
+			}
+		}
+		else
+		{
+			$pageName = $_GET['page'];
+		}
 	}
 	else
 	{
-		$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Sorry, the page you are looking for does not exist</div>';
+		$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Désolé, la page que vous recherchez n\'existe pas.</div>';
 		$pageName = 'process';
 	}
 }
@@ -70,7 +86,7 @@ else
 	}
 	else
 	{
-		$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Sorry, you are trying to access an invalid URL</div>';
+		$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Désolé, l\'URL demandée n\'existe pas.</div>';
 		$pageName = 'process';
 	}
 }

@@ -16,5 +16,4 @@ define ('EDITER_STOCK',            0x40);
 define ('EDITER_PRIX',             0x80);
 define ('EDITER_CLIENT',           0x100);
 define ('EDITER_PERMISSION',       0x200);
-
 ?>
