@@ -3,6 +3,10 @@
 Mettre ici les MAJ critique (base de données...)
 
 
+rappel : - les pages existantes sont listées dans la variable àpage de index.php de la racine de notre site
+           si on ajoute des nouvelles pages, il faudras donc rajouter le nom de la nouvelle page à ce niveau.
+         - si le nom de votre base de données n'est pas "eshop", penser à remodifier cette valeur dans le même fichier            au niveau de votre config pour que cela corresponde au nom de votre base
+         
 
 
 03/05 Patrick
