@@ -1,6 +1,6 @@
 <?php
 // Connexion DB
-$dbname = 'eshop';
+$dbname = 'tp_eshop';
 $host = 'localhost';
 $charset = 'UTF8';
 $dblogin = 'root';

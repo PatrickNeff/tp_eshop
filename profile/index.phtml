@@ -8,6 +8,8 @@
 
 					<legend>Nouvelles informations :</legend>
 
+                    <!--BDD Client-->
+
 					<div class="form-group">
                         <label for="formemail" class="col-md-5 control-label formconfig">Email : </label>
                         <div class="col-md-7">
@@ -24,6 +26,89 @@
                     </div>
                     <br>
 
+                    <!--BDD adresse-->
+
+                <fieldset>
+
+                    <legend>Adresse principale :</legend>
+
+                    <div class="form-group">
+                        <label for="newstreet" class="col-md-5 control-label formconfig">Rue : </label>
+                        <div class="col-md-7">
+                            <input type="text" name="formstreet"  id="newstreet" value="<?=$street?>" placeholder="" maxlength="16" class="form-control formconfig">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="newpostal" class="col-md-5 control-label formconfig">Code postal : </label>
+                        <div class="col-md-7">
+                            <input type="text" name="formzip"  id="newpostal" value="<?=$zipcode?>" placeholder="" maxlength="16" class="form-control formconfig">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="newcity" class="col-md-5 control-label formconfig">Ville : </label>
+                        <div class="col-md-7">
+                            <input type="text" name="formcity"  id="newcity" value="<?=$city?>" placeholder="" maxlength="32" class="form-control formconfig">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="newcountry" class="col-md-5 control-label formconfig">Pays : </label>
+                        <div class="col-md-7">
+                            <input type="text" name="formpays"  id="newcountry" value="<?=$country?>" placeholder="" maxlength="32" class="form-control formconfig">
+                        </div>
+                    </div>
+                    <br>
+                    
+
+                </fieldset>
+
+
+                <fieldset>
+
+                    <legend>Adresse de livraison :</legend>
+
+                    <div class="form-group">
+                        <label for="newstreet" class="col-md-5 control-label formconfig">Rue : </label>
+                        <div class="col-md-7">
+                            <input type="text" name="formstreet2"  id="newstreet2" value="<?=$street2?>" placeholder="" maxlength="16" class="form-control formconfig">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="newpostal" class="col-md-5 control-label formconfig">Code postal : </label>
+                        <div class="col-md-7">
+                            <input type="text" name="formzip2"  id="newpostal2" value="<?=$zipcode2?>" placeholder="" maxlength="16" class="form-control formconfig">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="newcity" class="col-md-5 control-label formconfig">Ville : </label>
+                        <div class="col-md-7">
+                            <input type="text" name="formcity2"  id="newcity2" value="<?=$city2?>" placeholder="" maxlength="32" class="form-control formconfig">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="newcountry" class="col-md-5 control-label formconfig">Pays : </label>
+                        <div class="col-md-7">
+                            <input type="text" name="formpays2"  id="newcountry2" value="<?=$country2?>" placeholder="" maxlength="32" class="form-control formconfig">
+                        </div>
+                    </div>
+                    <br>
+                    
+
+                </fieldset>
+
+
+
                     <button type="submit" name="validation" class="col-md-12 formconfig">Changer mes données</button>
                     
 
@@ -37,13 +122,6 @@
 
 					<legend>Changement de mot de passe :</legend>
 
-					<div class="form-group">
-                        <label for="ancienpassword" class="col-md-5 control-label formconfig">Ancien mot de passe : </label>
-                        <div class="col-md-7">
-                        	<input type="password" name="ancienpassword"  id="ancienpassword" value="" placeholder="<?=$pass?>" maxlength="32" class="form-control formconfig">
-                        </div>
-                    </div>
-                    <br>
 
                     <div class="form-group">
                         <label for="nouveaupassword" class="col-md-5 control-label formconfig">Nouveau mot de passe : </label>
