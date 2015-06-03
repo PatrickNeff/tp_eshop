@@ -1,6 +1,7 @@
 <?php
 require('apps/config.php');
 session_start();
+<<<<<<< HEAD
 try
 {
 	$db = new PDO('mysql:dbname='.$dbname.';host='.$host.';charset='.$charset, $dblogin, $dbpwd);
@@ -11,6 +12,9 @@ catch(Exception $get)
 	print_r($get);
 	die();
 }
+=======
+$db = new PDO("mysql:dbname=eshop;host=127.0.0.1", 'root', 'troiswa',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+>>>>>>> dev-patrick
 // Sélection des permissions à chaque chargement de page en cas de modification
 if (isset($_SESSION['auth']))
 {
@@ -29,10 +33,19 @@ if (isset($_GET['session']) && $_GET['session'] == 'logout')
 require('apps/functions.php');
 // Page exécutée en...
 $displayStart = generation();
+<<<<<<< HEAD
 // Codes HTTP
 $httpCode = http_response_code();
 // Gestion des pages du site (MVC)
 $page = array('home','login','register','admin','catalogue','profile','search','panier','process','error');
+=======
+// Chemin absolu et configuration serveur
+$path = 'http://'.$_SERVER['SERVER_NAME'].'/ecommerce/';
+// Codes HTTP
+$httpCode = http_response_code();
+// Gestion des pages du site (MVC)
+$page = array('home','login','register','admin','catalogue','profile','search','panier','process','error','catalogue_view','note');
+>>>>>>> dev-patrick
 if (isset($_GET['page']))
 {
 	if (in_array($_GET['page'],$page))
