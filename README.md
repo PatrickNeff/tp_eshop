@@ -1,5 +1,30 @@
 ========== Projet eshop ==========
 
+Mettre ici les MAJ critique (base de données...)
+
+
+
+
+03/05 Patrick
+
+ajout de colonnes dans la table note : 
+// pensez à changer le nom du dossier notes en note pour être cohérent avec la base
+
+ALTER TABLE `note` ADD `time_create` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'timestamp de mise à jour de l''avis' AFTER `comment` ;
+ALTER TABLE `note` CHANGE `time_create` `time_create` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'timestamp de mise à jour de l''avis'; 
+
+03/05 Fred
+
+Pour ajouter une colonne type d'adresse à la table adresse :
+
+ALTER TABLE `adresse` ADD `type_adresse` VARCHAR( 40 ) NOT NULL AFTER `client_id` ;
+
+
+
+
+
+
+
 29/05:
 
 Mise en place de la DB
