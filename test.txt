@@ -1,3 +1,0 @@
-Un bon petit tuto pour github pour savoir ce qu'il faut faire :
-
-http://alx.github.io/gitbook/3_usage_basique_des_branches_et_des_merges.html
