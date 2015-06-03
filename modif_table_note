@@ -1,0 +1,4 @@
+// pensez à changer le nom du dossier notes en note pour être cohérent avec la base
+
+ALTER TABLE  `note` ADD  `time_create` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT  'timestamp de mise à jour de l''avis' AFTER  `comment` ;
+ALTER TABLE  `note` CHANGE  `time_create`  `time_create` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT  'timestamp de mise à jour de l''avis';
