@@ -1,0 +1,30 @@
+<?php //require '../apps/header.php'; ?>
+
+<div class="row">
+	<?php $products = $db->query('SELECT * FROM product')->fetchAll(); ?>
+	<?php foreach ( $products as $product ): ?>
+		<div class="product full">
+				<a href="#">
+					<img src="<?= $product['image']; ?>" height="100px"/>
+				</a>
+				<div class="description">
+					<?= $product['name']; ?>
+					<a href="#" class="price"><?= $product['price']; ?> €</a>
+				</div>
+				<a class="add addPanier" href="addpanier.php?id=<?= $product['id_product']; ?>">
+					add
+				</a>
+		</div>
+	<?php endforeach ?>
+</div>
+
+<div id="pagination">
+	<ul class="wrap">
+		<li><a href="#"> Prev </a></li>
+		<li class="page"> Page : <a href="#">1</a> of 3</li>
+		<li><a href="#"> Next</a></li>
+	</ul>
+</div>
+
+
+<?php //require 'apps/footer.php'; ?>

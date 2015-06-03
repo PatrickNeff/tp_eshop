@@ -1,35 +1,34 @@
 <?php
+require('apps/config.php');
 session_start();
-$db = new PDO("mysql:dbname=eshop;host=127.0.0.1", 'root', 'troiswa',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+try
+{
+	$db = new PDO('mysql:dbname='.$dbname.';host='.$host.';charset='.$charset, $dblogin, $dbpwd);
+	$db->exec("SET CHARACTER SET utf8");
+}
+catch(Exception $get)
+{
+	print_r($get);
+	die();
+}
 // Sélection des permissions à chaque chargement de page en cas de modification
 if (isset($_SESSION['auth']))
 {
-	$selectPermissions = $db->query("SELECT groupe.permissions FROM groupe JOIN member ON member.id_groupe = groupe.id WHERE member.id = ".$_SESSION['id'])->fetch(PDO::FETCH_ASSOC);
-	$_SESSION['permissions'] = $selectPermissions['permissions'];
+	$selectPermissions = $db->query("SELECT permission.perms FROM permission JOIN client ON client.permission_id = permission.id_permission WHERE client.id = ".$_SESSION['id'])->fetch(PDO::FETCH_ASSOC);
+	$_SESSION['permissions'] = $selectPermissions['perms'];
 }
 // Déconnexion
 if (isset($_GET['session']) && $_GET['session'] == 'logout')
 {
-	$db->exec("UPDATE member SET time_update = NOW() WHERE id = ".$_SESSION['id']); // Update date dernière visite du membre
+	$db->exec("UPDATE client SET time_update = NOW() WHERE id = ".$_SESSION['id']); // Update date dernière visite du membre
 	$_SESSION = array(); // Destruction des variables de session
 	session_destroy(); // Destruction de la session
 	$_SESSION['message'] = '<div class="alert alert-success" role="alert">Vous êtes maintenant déconnecté</div>';
 }
-// Constantes pour permissions
-define ('PUBLIER_CONTENU',         0x01);
-define ('MODIFIER_CONTENU',        0x02);
-define ('SUPPRIMER_CONTENU',       0x04);
-define ('VALIDER_TOUT_CONTENU',    0x08);
-define ('MODIFIER_TOUT_CONTENU',   0x10);
-define ('SUPPRIMER_TOUT_CONTENU',  0x20);
-define ('GERER_MEMBRES',           0x40);
-define ('GERER_PERMISSIONS',       0x80);
 // Liste des fonctions principales
 require('apps/functions.php');
 // Page exécutée en...
 $displayStart = generation();
-// Chemin absolu et configuration serveur
-$path = 'http://'.$_SERVER['SERVER_NAME'].'/programmation/tp_eshop/';
 // Codes HTTP
 $httpCode = http_response_code();
 // Gestion des pages du site (MVC)
