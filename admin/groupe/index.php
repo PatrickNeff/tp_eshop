@@ -17,8 +17,8 @@ if (!empty($_POST['action']) AND $_POST['action'] == 'select_group') // Si le fo
 	$groupName = strip_tags($selectGroup['name']);
 	$groupDesc = strip_tags($selectGroup['description']);
 	$formAction = 'update_group';
-	$formActionText = 'Update group';
-	$formActionTitle = 'Update the group';
+	$formActionText = 'Editer le groupe';
+	$formActionTitle = 'Editer le groupe';
 	}
 	else
 	{

@@ -2,18 +2,18 @@
 	<div class="col-md-12">
         <?= $message ?>
 		<header class="page-header">
-			<h1>Groups management <small>Create and edit groups information</small></h1>
+			<h1>Gestion des groupes <small>Créer ou éditer des groupes</small></h1>
 		</header>
 	</div>
 	<div class="col-md-6">
 		<h2><?= $formActionTitle ?></h2>
 		<form method="post" action="index.php?page=admin&amp;admin=groupe" enctype="multipart/form-data">
 		  <div class="form-group">
-			<label for="name">Group title</label>
+			<label for="name">Titre du groupe</label>
 			<input type="text" class="form-control" id="name" name="name" value="<?= $groupName ?>">
 		  </div>
 		  <div class="form-group">
-			<label for="description">Group description</label>
+			<label for="description">Description du groupe</label>
 			<input type="text" class="form-control" id="description" name="description" value="<?= $groupDesc ?>">
 		  </div>
 			<input type="hidden" name="groupId" value="<?= $groupId; ?>">
@@ -21,13 +21,13 @@
 		</form>
 	</div>
 	<div class="col-md-6">
-		<h2>Select an existing group</h2>
+		<h2>Sélectionner un groupe</h2>
 		<form method="post" action="index.php?page=admin&amp;admin=groupe" enctype="multipart/form-data">
 			<div class="table-responsive">
 				<table class="table table-striped">
 				<thead>
 					<th>#</th>
-					<th>Name</th>
+					<th>Nom</th>
 					<th>Description</th>
 				</thead>
 				<?php
@@ -35,7 +35,7 @@
 				?>
 				</table>
 			</div>
-		  	<button type="submit" name="action" value="select_group" class="btn btn-primary">Select group</button>
+		  	<button type="submit" name="action" value="select_group" class="btn btn-primary">Sélectionner</button>
 		</form>	
 	</div>
 </div>
