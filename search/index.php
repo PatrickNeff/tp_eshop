@@ -21,7 +21,7 @@
 		while($i < sizeof($tab_result)) // Tant que $i est inférieur au nombre d'éléments du tableaux alors... : 
 		{
 			// On met le résultat dans une variable. On sécurise avec htmlentities.
-			$search = htmlentities($tab_result[$i]['id_product']).'		&#x27AA;	' .htmlentities($tab_result[$i]['name']).'	&#x27AA;	' .htmlentities($tab_result[$i]['description']).'	&#x27AA;	' .htmlentities($tab_result[$i]['image'])."<br>";
+			$search = '<ul><li>' .htmlentities($tab_result[$i]['name']).'</li><li>' .htmlentities($tab_result[$i]['description']).'</li><li>' .htmlentities($tab_result[$i]['image'])."</li></ul>"."<br>";
 			// On récupère l'id du produit pour pouvoir afficher la page produit en cliquant sur le lien.
 			$id_product = htmlentities($tab_result[$i]['id_product']);
 			// On affiche le résultat de la recherche.
