@@ -16,7 +16,7 @@ class db{
 		}
 echo var_dump();
 		try{
-			$this->db = new PDO("mysql:dbname=tp_eshop;host=localhost", 'root', 'troiswa');
+			$this->db = new PDO("mysql:dbname=eshop;host=localhost", 'root', 'troiswa');
 		}catch(PDOException $e){
 			die('<h1>Impossible de se connecter a la base de donnee</h1>');
 		}
