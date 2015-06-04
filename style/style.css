@@ -123,19 +123,22 @@ body {
 =====================================*/
 .search{
     transition: all 0.5s ease-out 0s;
+    font-family: 'Tangerine', cursive;
+    font-size: 24px;
     outline: none;
     border-radius: 0;
-    margin-top: 7px;
+    margin: 7px 0 0 30px;
     width: 60px;
     height: 20px;
     background-color: transparent;
-    color: #FFD050;
+    color: rgba(255, 255, 255, 1);
     border: none;
     box-shadow: none;
 }
 
 .search:focus{
-    width: 250px;
-    border-bottom: solid 1px #FFD050;
+    margin: 7px 0 0 0px;
+    max-width: 100%;
+    border-bottom: solid 1px rgba(255, 255, 255, 1);
 }
 

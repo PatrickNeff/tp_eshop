@@ -22,8 +22,10 @@
 		{
 			// On met le résultat dans une variable. On sécurise avec htmlentities.
 			$search = htmlentities($tab_result[$i]['id_product']).'		&#x27AA;	' .htmlentities($tab_result[$i]['name']).'	&#x27AA;	' .htmlentities($tab_result[$i]['description']).'	&#x27AA;	' .htmlentities($tab_result[$i]['image'])."<br>";
+			// On récupère l'id du produit pour pouvoir afficher la page produit en cliquant sur le lien.
+			$id_product = htmlentities($tab_result[$i]['id_product']);
 			// On affiche le résultat de la recherche.
-			echo'<a id="results" href="index.php?page=catalogue_view&id_product=$id_product">'.$search.'</a>';
+			echo'<a href="index.php?page=catalogue_view&id_product='.$id_product.'">'.$search.'</a>';
 
 			$i++;
 		}

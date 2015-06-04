@@ -52,7 +52,6 @@ if (isset($_GET['ajax']))
 
 
 
-$page = array('home','login','register','admin','catalogue','profile','search','panier','process','error');
 $admin = array('permission');
 // Codes HTTP
 $httpCode = http_response_code();

@@ -16,4 +16,23 @@ $(document).ready(function() // une fois le document chargé
 			});
 		}
 	});
+
+	$('#search-form').submit(function(info) 
+	{
+		info.preventDefault(); // permet de bloquer le comportement normal de notre formulaire (#search-form)
+		input_results = $(this).find('.search').val(); // on assigne a input_results le résultat de l'input
+
+			$.post('index.php?ajax=search',
+			{
+				"search" : input_results
+
+			}, function(data)
+			{
+				$('.container.body.section').html(data);
+			});
+		return false; // obligatoir avec la fonction info.preventDefault();
+	});
+
+
+
 });
