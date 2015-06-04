@@ -74,7 +74,7 @@ Modification des infos de profil
 		// Modification de la table client :
 
    		$phonemodif = $_POST["formphone"]; // le tél du formulaire devient la variable $phonemodif
-   	    $emailmodif = $_POST["formemail"] ; // l'email du formulaire devient la variable $emailmodif
+   	    $emailmodif = $_POST["formemail"]; // l'email du formulaire devient la variable $emailmodif
 
 		// dans la table member, le champ email est remplacé par la variable $email où le champ id vaut la variable $identifiant
 		$sql1 = "UPDATE client SET email = '".$emailmodif."', phone = '".$phonemodif."' WHERE id = '".$identifiant."' " ; 
@@ -137,12 +137,14 @@ Modification des infos de profil
 			$tab_des_modifs[] = $countrymodif; 
 		}
 
+		echo "<div class='alert alert-success'>";
 		$i=0;
 		while (isset($tab_des_modifs[$i]))
 		{
-			echo "<div class='col-md-12'><p class='ok'>".$tab_des_modifs[$i]." a été modifié dans vos informations personnelles !</p></div>";
+			echo ($tab_des_modifs[$i]." a été modifié dans vos informations personnelles <br>");
 			$i++;
 		}
+		echo "</div>";
 	}
 
 
@@ -166,13 +168,13 @@ Modification du mot de passe
 				$sql = "UPDATE client SET password = '".$nmdp."' WHERE id = '".$identifiant."' " ;
 				//exécution de la requête SQL:
 		  		$requete = $db->exec($sql);
-		  		echo "<div class='col-md-12'><p class='ok'>Votre mot de passe a été modifié !</p></div>";
+		  		echo "<div class='alert alert-success'><p class='ok'>Votre mot de passe a été modifié !</p></div>";
 			}
 			else
 			{
 				echo "<div class='alert alert-danger' role='alert'>Les mots de passe ne correspondent pas !</div>";
 			}
-
+		}
 
 /*-------------------------------
 Réactualisation des infos de profil
@@ -215,4 +217,3 @@ else
 
 
 ?>
-
