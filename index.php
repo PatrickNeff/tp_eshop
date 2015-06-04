@@ -33,16 +33,11 @@ if (isset($_GET['session']) && $_GET['session'] == 'logout')
 require('apps/functions.php');
 // Page exécutée en...
 $displayStart = generation();
-
-// Codes HTTP
-$httpCode = http_response_code();
-// Gestion des pages du site (MVC)
-$page = array('home','login','register','admin','catalogue','profile','search','panier','process','error');
-$admin = array('permission');
 // Codes HTTP
 $httpCode = http_response_code();
 // Gestion des pages du site (MVC)
 $page = array('home','login','register','admin','catalogue','profile','search','panier','process','error','catalogue_view','note');
+$admin = array('permission','groupe');
 if (isset($_GET['page']))
 {
 	if (in_array($_GET['page'],$page))
