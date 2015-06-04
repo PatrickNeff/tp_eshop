@@ -85,10 +85,10 @@ Modification des infos de profil
 
 	  	// Modification de la table adresse principale :
 
-	  	$streetmodif = $_POST["formstreet"]; // le tél du formulaire devient la variable $phonemodif
-   	    $zipmodif = $_POST["formzip"] ; // l'email du formulaire devient la variable $emailmodif
-	  	$citymodif = $_POST["formcity"]; // le tél du formulaire devient la variable $phonemodif
-   	    $countrymodif = $_POST["formpays"] ; // l'email du formulaire devient la variable $emailmodif
+	  	$streetmodif = $_POST["formstreet"]; 
+   	    $zipmodif = $_POST["formzip"] ; 
+	  	$citymodif = $_POST["formcity"]; 
+   	    $countrymodif = $_POST["formpays"] ; 
 
 		// dans la table member, le champ email est remplacé par la variable $email où le champ id vaut la variable $identifiant
 		$sql2 = "UPDATE adresse SET street = '".$streetmodif."', zipcode = '".$zipmodif."', city = '".$citymodif."', country = '".$countrymodif."' WHERE client_id = '".$identifiant."' AND type_adresse = 'principale' " ; 
@@ -98,10 +98,10 @@ Modification des infos de profil
 
 	  	// Modification de la table adresse de livraison :
 
-	  	$streetmodif2 = $_POST["formstreet2"]; // le tél du formulaire devient la variable $phonemodif
-   	    $zipmodif2 = $_POST["formzip2"] ; // l'email du formulaire devient la variable $emailmodif
-	  	$citymodif2 = $_POST["formcity2"]; // le tél du formulaire devient la variable $phonemodif
-   	    $countrymodif2 = $_POST["formpays2"] ; // l'email du formulaire devient la variable $emailmodif
+	  	$streetmodif2 = $_POST["formstreet2"]; 
+   	    $zipmodif2 = $_POST["formzip2"] ;
+	  	$citymodif2 = $_POST["formcity2"];
+   	    $countrymodif2 = $_POST["formpays2"] ;
 
 		// dans la table member, le champ email est remplacé par la variable $email où le champ id vaut la variable $identifiant
 		$sql2 = "UPDATE adresse SET street = '".$streetmodif2."', zipcode = '".$zipmodif2."', city = '".$citymodif2."', country = '".$countrymodif2."' WHERE client_id = '".$identifiant."' AND type_adresse = 'livraison' " ; 
@@ -152,25 +152,17 @@ Modification du mot de passe
 ---------------------------------*/
 
 
-	/*if (isset($_POST['validationmdp']))
-	{
-		$amdp=trim($_POST['ancienpassword']);
-		$amdp=password_hash($amdp, PASSWORD_BCRYPT, ["cost" => 10]);
-		$sql = "SELECT password FROM client WHERE id = '".$identifiant."' ";
-		$utilisateur = $db->query($sql)->fetch();*/
-
-		if (isset($_POST['validationmdp'])) /* $amdp==$utilisateur['password']*/
+		if (isset($_POST['validationmdp']))
 		{
 
-
-			$nmdp = trim($_POST['nouveaupassword']);
-        	$nmdp = password_hash($nmdp, PASSWORD_BCRYPT, ["cost" => 10]);
-
-			$vmdp = trim($_POST['confirmpassword']);
-        	$vmdp = password_hash($vmdp, PASSWORD_BCRYPT, ["cost" => 10]); 
+			$nmdp = $_POST['nouveaupassword'];
+			$vmdp = $_POST['confirmpassword'];
 
 			if ($nmdp==$vmdp)
 			{
+				$nmdp = trim($_POST['nouveaupassword']);
+        		$nmdp = password_hash($nmdp, PASSWORD_BCRYPT, ["cost" => 10]);
+
 				$sql = "UPDATE client SET password = '".$nmdp."' WHERE id = '".$identifiant."' " ;
 				//exécution de la requête SQL:
 		  		$requete = $db->exec($sql);
@@ -180,8 +172,7 @@ Modification du mot de passe
 			{
 				echo "<div class='alert alert-danger' role='alert'>Les mots de passe ne correspondent pas !</div>";
 			}
-		}
-	//}
+
 
 /*-------------------------------
 Réactualisation des infos de profil
