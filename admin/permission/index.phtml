@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="col-md-12">
+        <?= $message ?>
+		<header class="page-header">
+			<h1>Permissions <small>Gérer les permissions pour un groupe</small></h1>
+		</header>
+	</div>
+	<div class="col-md-12">
+		<h2>Sélectionner un groupe</h2>
+		<form method="post" action="index.php?page=admin&amp;admin=permission" enctype="multipart/form-data">
+			<div class="table-responsive">
+				<table class="table table-striped">
+				<thead>
+					<th>#</th>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Client</th>
+					<th>Editer avis</th>
+					<th>Supprimer avis</th>
+					<th>Ajouter produit</th>
+					<th>Editer produit</th>
+					<th>Supprimer produit</th>
+					<th>Editer stock</th>
+					<th>Editer prix</th>
+					<th>Editer client</th>
+					<th>Editer permissions</th>
+				</thead>
+				<?php
+				displayLoop($selectList);
+				?>
+				</table>
+			</div>
+		  	<button type="submit" name="action" value="update_permissions" class="btn btn-primary">Mettre à jour</button>
+		</form>	
+	</div>
+</div>

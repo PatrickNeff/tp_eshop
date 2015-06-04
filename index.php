@@ -1,6 +1,7 @@
 <?php
 require('apps/config.php');
 session_start();
+
 try
 {
 	$db = new PDO('mysql:dbname='.$dbname.';host='.$host.';charset='.$charset, $dblogin, $dbpwd);
@@ -11,6 +12,9 @@ catch(Exception $get)
 	print_r($get);
 	die();
 }
+
+$db = new PDO("mysql:dbname=eshop;host=127.0.0.1", 'root', 'troiswa',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+
 // Sélection des permissions à chaque chargement de page en cas de modification
 if (isset($_SESSION['auth']))
 {
@@ -29,19 +33,40 @@ if (isset($_GET['session']) && $_GET['session'] == 'logout')
 require('apps/functions.php');
 // Page exécutée en...
 $displayStart = generation();
+
 // Codes HTTP
 $httpCode = http_response_code();
 // Gestion des pages du site (MVC)
 $page = array('home','login','register','admin','catalogue','profile','search','panier','process','error');
+$admin = array('permission');
+// Codes HTTP
+$httpCode = http_response_code();
+// Gestion des pages du site (MVC)
+$page = array('home','login','register','admin','catalogue','profile','search','panier','process','error','catalogue_view','note');
 if (isset($_GET['page']))
 {
 	if (in_array($_GET['page'],$page))
 	{
-		$pageName = $_GET['page'];
+		if (isset($_GET['admin']))
+		{
+			if (in_array($_GET['admin'],$admin))
+			{
+				$pageName = $_GET['page'].'/'.$_GET['admin'];
+			}
+			else
+			{
+				$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Désolé, la page d\'administration que vous recherché n\'existe pas.</div>';
+				$pageName = 'process';
+			}
+		}
+		else
+		{
+			$pageName = $_GET['page'];
+		}
 	}
 	else
 	{
-		$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Sorry, the page you are looking for does not exist</div>';
+		$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Désolé, la page que vous recherchez n\'existe pas.</div>';
 		$pageName = 'process';
 	}
 }
@@ -70,7 +95,7 @@ else
 	}
 	else
 	{
-		$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Sorry, you are trying to access an invalid URL</div>';
+		$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Désolé, l\'URL demandée n\'existe pas.</div>';
 		$pageName = 'process';
 	}
 }

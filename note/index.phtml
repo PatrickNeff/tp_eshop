@@ -1,0 +1,53 @@
+<div class="row">
+
+	<div class="col-md-12"><?= $message ?>
+		<header class="page-header">
+			<h2>Voulez vous laisser un avis pour l'article <strong> <?=$select6['myproduct_name2']?></strong> ?</h2><!-- plante si paqs d'avis--> 
+		</header>
+	</div>
+
+	<div class="col-md-12">
+		<h2>Publier votre avis ici</h2>
+
+		<form method="post" action="index.php?page=note&amp;id_product=<?=$_GET['id_product']?>" enctype="multipart/form-data">
+
+			<div class="form-group">
+				<label for="commenty">Commentaire</label>
+				<textarea class="form-control" id="comment" name="comment"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="satisfaction">Satisfaction</label><br>
+				<!--<input type="text" class="form-control" id="satisfaction" name="satisfaction"> -->
+				<select name="satisfaction">
+				    <option value="5" selected >superbe produit</option>
+				    <option value="4">bon produit</option>
+				    <option value="3">produit moyen</option>
+				    <option value="2">produit pas fameux</option>
+				    <option value="1">bullshit!!!</option>
+				</select>
+			</div>
+
+			<button type="submit" name="action" value="publish_note" class="btn btn-primary">Publier votre commentaire</button>
+		</form>
+
+		<!-- 'Go to page:'.implode("", pagination($pagin, $nbPage, 3, '?page=note&amp;pagin='));-->
+		<p id="pagination"><?= 'Go to page:'.implode("", pagination($pagin, $nbPage, 3, '?page=note&amp;id_product=' .$_GET['id_product']. '&pagin='));?></p>
+
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<th>Client</th>
+					<th>Article</th>
+					<th>Indice de satisfaction</th>	
+					<th>Avis</th>
+					<th>Date de création</th>					
+				</thead>
+				<?php
+				displayLoop2($select5);
+				?>
+			</table>
+			<p><a href="index.php?page=catalogue_view&amp;id_product=<?=$_GET['id_product']?>"><button type="button" class="btn btn-primary">
+					Retour vers le produit <strong><?=$select6['myproduct_name2']?></strong> </button></a></p> 
+		</div> 
+	</div>
+</div>
