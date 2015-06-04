@@ -30,12 +30,12 @@ Vérification de l'existence du client_ID
 
 		// insérer une ligne avec la client id = id de l'utilisateur
         $request1 ="INSERT INTO adresse (id, client_id, type_adresse, street, zipcode, city, country) VALUES ('', '".$identifiant."', 'principale', '', '', '', '')";
-		echo ($request1."<br>");
 		$db->exec($request1);
 
         $request2 ="INSERT INTO adresse (id, client_id, type_adresse, street, zipcode, city, country) VALUES ('', '".$identifiant."', 'livraison', '', '', '', '')";
-		echo ($request2);
         $db->exec($request2);
+
+        echo "<div class='alert alert-success'>Vous ajouter à votre profile une adresse principale et une adresse de livraison si vous le souhaitez !</div>";
 	}
 
 
@@ -136,15 +136,30 @@ Modification des infos de profil
 		{
 			$tab_des_modifs[] = $countrymodif; 
 		}
+		if ($street2!=$streetmodif2)
+		{
+			$tab_des_modifs[] = $streetmodif2; 
+		}
+		if ($zipcode2!=$zipmodif2)
+		{
+			$tab_des_modifs[] = $zipmodif2; 
+		}
+		if ($city2!=$citymodif2)
+		{
+			$tab_des_modifs[] = $citymodif2; 
+		}
+		if ($country2!=$countrymodif2)
+		{
+			$tab_des_modifs[] = $countrymodif2; 
+		}
 
-		echo "<div class='alert alert-success'>";
 		$i=0;
 		while (isset($tab_des_modifs[$i]))
 		{
-			echo ($tab_des_modifs[$i]." a été modifié dans vos informations personnelles <br>");
+			echo ("<div class='alert alert-success'>".$tab_des_modifs[$i]." a été modifié dans vos informations personnelles </div>");
 			$i++;
 		}
-		echo "</div>";
+
 	}
 
 
