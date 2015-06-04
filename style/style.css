@@ -1,6 +1,6 @@
 body {
 	padding-top: 70px;
-    padding-bottom: 203px
+    padding-bottom: 203px;
 }
 
 /*==============================
@@ -138,7 +138,6 @@ body {
 }
 
 /*===================================
-<<<<<<< HEAD
     NAVIGATION
 =====================================*/
 
@@ -183,9 +182,9 @@ body {
     font-size: 24px;
     outline: none;
     border-radius: 0;
-    margin: 7px 0 0 30px;
+    margin: 0 0 0 30px;
     width: 60px;
-    height: 20px;
+    height: 30px;
     background-color: transparent;
     color: rgba(255, 255, 255, 1);
     border: none;
