@@ -3,7 +3,7 @@ require('apps/config.php');
 session_start();
 try
 {
-	$db = new PDO('mysql:dbname='.$dbname.';host='.$host.';charset='.$charset, $dblogin, $dbpwd);
+	$db = new PDO('mysql:dbname='.DB_NAME.';host='.DB_HOST.';charset='.DB_CHARSET, DB_USER, DB_PASS);
 	$db->exec("SET CHARACTER SET utf8");
 }
 catch(Exception $get)
@@ -41,14 +41,14 @@ if (isset($_GET['ajax']))
 // Codes HTTP
 $httpCode = http_response_code();
 // Gestion des pages du site (MVC)
-$page = array('home','login','register','admin','catalogue','profile','search','panier','process','error','catalogue_view','note');
-$admin = array('permission','groupe');
 if (isset($_GET['page']))
 {
+	$page = array('home','login','register','admin','catalogue','profile','search','panier','process','error','catalogue_view','note');
 	if (in_array($_GET['page'],$page))
 	{
 		if (isset($_GET['admin']))
 		{
+			$admin = array('permission','groupe','stock');
 			if (in_array($_GET['admin'],$admin))
 			{
 				$pageName = $_GET['page'].'/'.$_GET['admin'];

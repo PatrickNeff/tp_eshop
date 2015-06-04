@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="col-md-12">
+        <?= $message ?>
+		<header class="page-header">
+			<h1>Gestion des stocks <small>Mettre à jour les stocks des produit</small></h1>
+		</header>
+	</div>
+	<div class="col-md-12">
+		<h2>Liste des produits</h2>
+		<form method="post" action="index.php?page=admin&admin=stock" enctype="multipart/form-data">
+			<div class="table-responsive">
+				<table class="table table-striped">
+				<thead>
+					<th>Produit</th>
+					<th>Description</th>
+					<th>Stock</th>
+				</thead>
+				<?php
+				displayLoop($selectList);
+				?>
+				</table>
+			</div>
+		  	<button type="submit" name="action" value="select_product" class="btn btn-primary">Mettre à jour</button>
+		</form>	
+	</div>
+</div>

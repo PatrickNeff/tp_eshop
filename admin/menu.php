@@ -33,7 +33,7 @@ if ($_SESSION['permissions'] & SUPPRIMER_PRODUIT)
 }
 if ($_SESSION['permissions'] & EDITER_STOCK)
 {
-	$permissionsLinks .= '<a href="./index.php?page=admin_manage_contact" class="alert-link">Editer les stocks</a> | ';
+	$permissionsLinks .= '<a href="./index.php?page=admin&admin=stock" class="alert-link">Editer les stocks</a> | ';
 }
 if ($_SESSION['permissions'] & EDITER_PRIX)
 {
@@ -45,6 +45,6 @@ if ($_SESSION['permissions'] & EDITER_CLIENT)
 }
 if ($_SESSION['permissions'] & EDITER_PERMISSION)
 {
-	$permissionsLinks .= '<a href="./index.php?page=admin&amp;admin=permission" class="alert-link">Editer les permissions</a> | <a href="./index.php?page=admin&amp;admin=groupe" class="alert-link">Editer les groupes</a>';
+	$permissionsLinks .= '<a href="./index.php?page=admin&admin=permission" class="alert-link">Editer les permissions</a> | <a href="./index.php?page=admin&amp;admin=groupe" class="alert-link">Editer les groupes</a>';
 }
 ?>
