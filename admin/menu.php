@@ -12,7 +12,7 @@ else
 	 AND !($_SESSION['permissions'] & EDITER_STOCK)
 	 AND !($_SESSION['permissions'] & EDITER_PRIX)
 	 AND !($_SESSION['permissions'] & EDITER_CLIENT)
-	 AND !($_SESSION['permissions'] & EDITER_PERMSSION))
+	 AND !($_SESSION['permissions'] & EDITER_PERMISSION))
 	{
 		header('Location: index.php?page=home');
 		die();

@@ -9,7 +9,13 @@ else
 }
 if (isset($_SESSION['auth']) && $_SESSION['auth'] == true)
 {
-	if ($_SESSION['permissions'] & EDITER_PERMISSION)
+	if (($_SESSION['permissions'] & AJOUTER_PRODUIT)
+	 OR ($_SESSION['permissions'] & EDITER_PRODUIT)
+	 OR ($_SESSION['permissions'] & SUPPRIMER_PRODUIT)
+	 OR ($_SESSION['permissions'] & EDITER_STOCK)
+	 OR ($_SESSION['permissions'] & EDITER_PRIX)
+	 OR ($_SESSION['permissions'] & EDITER_CLIENT)
+	 OR ($_SESSION['permissions'] & EDITER_PERMISSION))
 	{
 		$logLink .= '<li class="navbar-admin"><a href=index.php?page=admin>Admin</a></li>';
 	}

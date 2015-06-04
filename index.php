@@ -1,7 +1,6 @@
 <?php
 require('apps/config.php');
 session_start();
-
 try
 {
 	$db = new PDO('mysql:dbname='.$dbname.';host='.$host.';charset='.$charset, $dblogin, $dbpwd);
@@ -12,9 +11,6 @@ catch(Exception $get)
 	print_r($get);
 	die();
 }
-
-$db = new PDO("mysql:dbname=eshop;host=127.0.0.1", 'root', 'troiswa',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-
 // Sélection des permissions à chaque chargement de page en cas de modification
 if (isset($_SESSION['auth']))
 {
@@ -33,13 +29,6 @@ if (isset($_GET['session']) && $_GET['session'] == 'logout')
 require('apps/functions.php');
 // Page exécutée en...
 $displayStart = generation();
-
-// Codes HTTP
-$httpCode = http_response_code();
-// Gestion des pages du site (MVC)
-
-
-
 // =====>	CODE MOCHE	<=====
 //*********************************************
 if (isset($_GET['ajax']))
@@ -49,14 +38,11 @@ if (isset($_GET['ajax']))
 	die();
 }
 //*********************************************
-
-
-
-$admin = array('permission');
 // Codes HTTP
 $httpCode = http_response_code();
 // Gestion des pages du site (MVC)
 $page = array('home','login','register','admin','catalogue','profile','search','panier','process','error','catalogue_view','note');
+$admin = array('permission','groupe');
 if (isset($_GET['page']))
 {
 	if (in_array($_GET['page'],$page))
