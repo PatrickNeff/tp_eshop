@@ -25,6 +25,62 @@ body {
 	margin-bottom: 15px;
 }
 
+.footer ul{
+    padding-left: 0px;
+}
+
+.social-list{
+    margin-top: 20px;
+}
+
+.social-list li{
+    display: inline-block;
+}
+
+.social{
+    width: 50px;
+    height: 46px;
+    display: inline-block;
+    background: url(../images/social-icons.png);
+}
+
+.social-fb{
+    background-position: 0 0;
+    margin-left: 0px;
+}
+.social-fb:hover{
+    background-position: 0 -47px;
+    margin-left: 0px;
+}
+
+.social-tw{
+    background-position: -51px 0;
+    margin-left: 15px;
+}
+.social-tw:hover{
+    background-position: -51px -47px;
+    margin-left: 15px;
+}
+
+.social-db{
+    background-position: -102px 0;
+    margin-left: 15px;    
+}
+
+.social-db:hover{
+    background-position: -102px -47px;
+    margin-left: 15px;
+}
+
+.social-rss{
+    background-position: -152px 0;
+    margin-left: 15px;
+}
+.social-rss:hover{
+    background-position: -152px -47px;
+    margin-left: 15px;
+}
+
 /*===================================
 	RESET SLIDER SETTINGS
 =====================================*/
@@ -123,19 +179,22 @@ body {
 =====================================*/
 .search{
     transition: all 0.5s ease-out 0s;
+    font-family: 'Tangerine', cursive;
+    font-size: 24px;
     outline: none;
     border-radius: 0;
-    margin-top: 7px;
+    margin: 7px 0 0 30px;
     width: 60px;
     height: 20px;
     background-color: transparent;
-    color: #FFD050;
+    color: rgba(255, 255, 255, 1);
     border: none;
     box-shadow: none;
 }
 
 .search:focus{
-    width: 250px;
-    border-bottom: solid 1px #FFD050;
+    margin: 7px 0 0 0px;
+    max-width: 100%;
+    border-bottom: solid 1px rgba(255, 255, 255, 1);
 }
 
