@@ -17,6 +17,8 @@ procédure à suivre:
 3) retourner dans la base eshop, copier le fichier dans sql et executer
 On auras donc une table order et une table orders qui seras utilisée. Si vous savez coment virer la table order, je suis preneur :-)
 
+>> Le DROP fonctionne bien.  table/opérations/supprimer la table (DROP) -> écrit en rouge.
+
 
 03/05 Patrick
 
