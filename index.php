@@ -42,7 +42,7 @@ if (isset($_GET['ajax']))
 $httpCode = http_response_code();
 // Gestion des pages du site (MVC)
 $page = array('home','login','register','admin','catalogue','profile','search','panier','process','error','catalogue_view','note');
-$admin = array('permission','groupe');
+$admin = array('permission','groupe','modifclient');
 if (isset($_GET['page']))
 {
 	if (in_array($_GET['page'],$page))
