@@ -1,24 +1,4 @@
 <?php
-/*-------------------------------
-Vérification de l'existence du client_ID
----------------------------------*/
-/*
-  	$sql = "SELECT * FROM adresse WHERE client_id='".$identifiant."'";
-	//exécution de la requête:
-	$infosadresse = $db->query($sql)->fetchAll();
-	if (empty($infosadresse))
-	{
-
-		// insérer une ligne avec la client id = id de l'utilisateur
-        $request1 ="INSERT INTO adresse (id, client_id, type_adresse, street, zipcode, city, country) VALUES ('', '".$identifiant."', 'principale', '', '', '', '')";
-		$db->exec($request1);
-
-        $request2 ="INSERT INTO adresse (id, client_id, type_adresse, street, zipcode, city, country) VALUES ('', '".$identifiant."', 'livraison', '', '', '', '')";
-        $db->exec($request2);
-
-        echo "<div class='alert alert-success'>Vous ajouter à votre profile une adresse principale et une adresse de livraison si vous le souhaitez !</div>";
-	}
-*/
 
 /*-------------------------------
 Modification des infos de profil
@@ -57,21 +37,25 @@ if (isset($_POST['validation']))
 	//exécution de la requête SQL:
   	$requete2 = $db->exec($sql2);
 
-	echo ("<div class='alert alert-success'>Les modifications ont été sauvegardées</div>");
+	$success="<div class='alert alert-success'>Les modifications ont été sauvegardées</div>";
 
 }
 
 /*-------------------------------
 Modification du mot de passe
 ---------------------------------*/
+
 if (isset($_POST['validationmdp']))
 {
 	$nmdp = $_POST['nouveaupassword'];
 	$vmdp = $_POST['confirmpassword'];
+
 	if ($nmdp==$vmdp)
 	{
 		$nmdp = trim($_POST['nouveaupassword']);
 		$nmdp = password_hash($nmdp, PASSWORD_BCRYPT, ["cost" => 10]);
+
+		echo $identifiant;
 
 		$sql = "UPDATE client SET password = '".$nmdp."' WHERE id = '".$identifiant."' " ;
 		//exécution de la requête SQL:
@@ -83,4 +67,5 @@ if (isset($_POST['validationmdp']))
 		echo "<div class='alert alert-danger' role='alert'>Les mots de passe ne correspondent pas !</div>";
 	}
 }
+
 ?>

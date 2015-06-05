@@ -15,7 +15,7 @@ $city2 = "";
 $country2 = "";
 $identifiant = "";
 
-if (isset($_POST['valrecherche'], $_POST['id_client'], $_POST['pseudo_client']))
+if (isset($_POST['valrecherche'], $_POST['validationmdp'], $_POST['id_client'], $_POST['pseudo_client']))
 {
 	if (!empty($_POST['id_client']))
 	{
@@ -37,7 +37,7 @@ if (isset($_POST['valrecherche'], $_POST['id_client'], $_POST['pseudo_client']))
 	}
 }
 
-if (isset($_POST['validation'], $_POST['id_client']))
+if (isset($_POST['validation'], $_POST['validationmdp'], $_POST['id_client']))
 {
 	if (!empty($_POST['id_client']))
 	{
@@ -48,6 +48,7 @@ if (isset($_POST['validation'], $_POST['id_client']))
 		$sql = "SELECT * FROM client WHERE pseudo=".$db->quote($_POST['pseudo_client']);
 	}
 	$result = $db->query($sql);
+
 	if ($result)
 	{
 		$result = $result->fetchAll();
@@ -55,7 +56,29 @@ if (isset($_POST['validation'], $_POST['id_client']))
 		{
 			$client = $result[0];
 			$identifiant = $client['id'];
-			require('./admin/modifclient/modif.php');
+
+			/*-------------------------------
+			Vérification de l'existence du client_ID
+			---------------------------------*/
+
+			  	$sql = "SELECT * FROM adresse WHERE client_id='".$identifiant."'";
+				//exécution de la requête:
+				$infosadresse = $db->query($sql)->fetchAll();
+
+				if (empty($infosadresse))
+				{
+
+					// insérer une ligne avec la client id = id de l'utilisateur
+			        $request1 ="INSERT INTO adresse (id, client_id, type_adresse, street, zipcode, city, country) VALUES ('', '".$identifiant."', 'principale', '', '', '', '')";
+					$db->exec($request1);
+
+			        $request2 ="INSERT INTO adresse (id, client_id, type_adresse, street, zipcode, city, country) VALUES ('', '".$identifiant."', 'livraison', '', '', '', '')";
+			        $db->exec($request2);
+
+			        echo "<div class='alert alert-success'>Vous ajouter à votre profile une adresse principale et une adresse de livraison si vous le souhaitez !</div>";
+				}
+
+				require('./admin/modifclient/modif.php');
 		}
 		else
 		{
@@ -67,6 +90,8 @@ if (isset($_POST['validation'], $_POST['id_client']))
 		$error = "<div class='alert alert-danger' role='alert'>L'identifiant ID ou le pseudo de l'utilisateur n'existe pas !</div>";
 	}
 }
+
+
 
 if ($identifiant !== '')
 {
