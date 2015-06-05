@@ -15,7 +15,7 @@ $city2 = "";
 $country2 = "";
 $identifiant = "";
 
-if (isset($_POST['valrecherche'], $_POST['validationmdp'], $_POST['id_client'], $_POST['pseudo_client']))
+if (isset($_POST['valrecherche'], $_POST['id_client'], $_POST['pseudo_client']))
 {
 	if (!empty($_POST['id_client']))
 	{
@@ -37,7 +37,12 @@ if (isset($_POST['valrecherche'], $_POST['validationmdp'], $_POST['id_client'], 
 	}
 }
 
-if (isset($_POST['validation'], $_POST['validationmdp'], $_POST['id_client']))
+if (isset($_POST['validationmdp'], $_POST['id_client']))
+{
+	
+}
+
+if (isset($_POST['validation'], $_POST['id_client']))
 {
 	if (!empty($_POST['id_client']))
 	{
