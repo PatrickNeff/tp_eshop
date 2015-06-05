@@ -55,7 +55,6 @@ if (isset($_POST['validationmdp']))
 		$nmdp = trim($_POST['nouveaupassword']);
 		$nmdp = password_hash($nmdp, PASSWORD_BCRYPT, ["cost" => 10]);
 
-		echo $identifiant;
 
 		$sql = "UPDATE client SET password = '".$nmdp."' WHERE id = '".$identifiant."' " ;
 		//exécution de la requête SQL:
