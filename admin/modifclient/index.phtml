@@ -1,4 +1,14 @@
 <div class="container">
+
+    <?php
+    if (isset($error)) {
+        echo $error;
+    }
+    if (isset($success)) {
+        echo $success;
+    }
+     ?>
+
 	<div class="row">
 
         <form name="modification" method="post" action="">
@@ -27,6 +37,7 @@
 
 
 			<form method="post" action="">
+                <input type="hidden" name="id_client" value="<?=$identifiant?>">
 				<fieldset>                
 
 					<legend>Informations :</legend>
@@ -141,10 +152,10 @@
 
 		<div class="col-md-6 col-sd-12">
 			<form method="post" action="">
+                <input type="hidden" name="id_client" value="<?=$identifiant?>">
 				<fieldset>
 
 					<legend>Changement de mot de passe :</legend>
-
 
                     <div class="form-group">
                         <label for="nouveaupassword" class="col-md-5 control-label formconfig">Nouveau mot de passe : </label>
