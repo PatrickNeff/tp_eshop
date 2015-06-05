@@ -1,4 +1,6 @@
 <?php
+echo "toto";
+
 class panier{
 
 	private $db;
