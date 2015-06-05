@@ -41,7 +41,7 @@ if ($_SESSION['permissions'] & EDITER_PRIX)
 }
 if ($_SESSION['permissions'] & EDITER_CLIENT)
 {
-	$permissionsLinks .= '<a href="./index.php?page=admin_manage_contact" class="alert-link">Editer un profil client</a> | ';
+	$permissionsLinks .= '<a href="./index.php?page=admin&amp;admin=modifclient" class="alert-link">Editer un profil client</a> | ';
 }
 if ($_SESSION['permissions'] & EDITER_PERMISSION)
 {

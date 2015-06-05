@@ -7,6 +7,17 @@ rappel : - les pages existantes sont listées dans la variable àpage de index.p
            si on ajoute des nouvelles pages, il faudras donc rajouter le nom de la nouvelle page à ce niveau.
          - si le nom de votre base de données n'est pas "eshop", penser à remodifier cette valeur dans le même fichier            au niveau de votre config pour que cela corresponde au nom de votre base
          
+05/06 patrick. table order
+
+comme j'ai bien refaire les mêmes conneries, j'ai appelé la table commande "order" qui est un mot clé (un peu comme group quoi)
+il faut modifier cela!
+procédure à suivre:
+1) exporter la table order
+2) ouvrir le sql et changer le nom de la table en orders (et pas des champs, même si commance par order...). Bien vérifier pour le modifier partout ou nécessaire
+3) retourner dans la base eshop, copier le fichier dans sql et executer
+On auras donc une table order et une table orders qui seras utilisée. Si vous savez coment virer la table order, je suis preneur :-)
+
+>> Le DROP fonctionne bien.  table/opérations/supprimer la table (DROP) -> écrit en rouge.
 
 
 03/05 Patrick

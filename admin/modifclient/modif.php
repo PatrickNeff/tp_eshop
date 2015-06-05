@@ -1,19 +1,5 @@
 <?php
 
-
-$email = '';
-$phone = '';
-
-/*-------------------------------
-Affichage des infos de profil
----------------------------------*/
-
-if (isset($_SESSION['id'])) //isset($_GET["id"]))
-{
-	$identifiant  = intval($_SESSION['id']); //$_GET["id"]);
-
-
-
 /*-------------------------------
 Vérification de l'existence du client_ID
 ---------------------------------*/
@@ -69,7 +55,7 @@ Modification des infos de profil
 
 	if (isset($_POST['validation']))
 	{
-
+		$identifiant  = $tab1[0]['id'];
 
 		// Modification de la table client :
 
@@ -156,11 +142,12 @@ Modification des infos de profil
 		$i=0;
 		while (isset($tab_des_modifs[$i]))
 		{
-			echo ("<div class='alert alert-success'>".$tab_des_modifs[$i]." a été modifié dans vos informations personnelles </div>");
+			echo ("<div class='alert alert-success'>".$tab_des_modifs[$i]." a été modifié dans les informations personnelles de l'utilisateur</div>");
 			$i++;
 		}
 
 	}
+
 
 
 
@@ -219,16 +206,6 @@ Réactualisation des infos de profil
 	$zipcode2 = $utilisateur['zipcode'];
 	$city2 = $utilisateur['city'];
 	$country2 = $utilisateur['country'];
-
-	require('index.phtml');
-
-}
-
-else
-{
-	echo "<div class='alert alert-danger' role='alert'>Vous devez vous connecter pour accéder à cette page !</div>";
-}
-
 
 
 ?>
