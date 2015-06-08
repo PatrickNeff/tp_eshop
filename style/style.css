@@ -71,7 +71,7 @@ a:hover{
     margin-left: 0px;
 }
 .social-fb:hover{
-    animation: s-anim 1s;
+    animation: s-anim 0.8s;
     background-position: 0 -47px;
     margin-left: 0px;
 }
@@ -81,7 +81,7 @@ a:hover{
     margin-left: 15px;
 }
 .social-tw:hover{
-    animation: s-anim 1s;
+    animation: s-anim 0.8s;
     background-position: -51px -47px;
     margin-left: 15px;
 }
@@ -92,7 +92,7 @@ a:hover{
 }
 
 .social-db:hover{
-    animation: s-anim 1s;
+    animation: s-anim 0.8s;
     background-position: -102px -47px;
     margin-left: 15px;
 }
@@ -102,7 +102,7 @@ a:hover{
     margin-left: 15px;
 }
 .social-rss:hover{
-    animation: s-anim 1s;
+    animation: s-anim 0.8s;
     background-position: -152px -47px;
     margin-left: 15px;
 }

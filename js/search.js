@@ -32,7 +32,4 @@ $(document).ready(function() // une fois le document chargé
 			});
 		return false; // obligatoir avec la fonction info.preventDefault();
 	});
-
-
-
 });
