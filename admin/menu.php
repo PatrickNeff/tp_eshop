@@ -37,7 +37,7 @@ if ($_SESSION['permissions'] & EDITER_STOCK)
 }
 if ($_SESSION['permissions'] & EDITER_PRIX)
 {
-	$permissionsLinks .= '<a href="./index.php?page=admin_manage_contact" class="alert-link">Editer les prix</a> | ';
+	$permissionsLinks .= '<a href="./index.php?page=admin&admin=prix" class="alert-link">Editer les prix</a> | ';
 }
 if ($_SESSION['permissions'] & EDITER_CLIENT)
 {
