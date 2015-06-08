@@ -15,6 +15,20 @@ $city2 = "";
 $country2 = "";
 $identifiant = "";
 
+/*$sql = "SELECT * FROM client";
+$tab_utilisateurs = $db->query($sql)->fetchAll();
+
+$i=0;
+while (sizeof($tab_utilisateurs)) {
+	$user = "<tr><td>".$tab_utilisateurs[$i]['id']."</td><td>".$tab_utilisateurs[$i]['pseudo']."</td></tr>";
+	$i++;
+}*/
+
+
+/*-----------------------------------------------------
+Recherche existence de l'utilisateur par ID ou pseudo
+------------------------------------------------------*/
+
 if (isset($_POST['valrecherche'], $_POST['id_client'], $_POST['pseudo_client']))
 {
 	if (!empty($_POST['id_client']))
@@ -36,6 +50,10 @@ if (isset($_POST['valrecherche'], $_POST['id_client'], $_POST['pseudo_client']))
 		}
 	}
 }
+
+/*-----------------------------------------------------
+Modification informations de l'utilisateur
+------------------------------------------------------*/
 
 if (isset($_POST['validation'], $_POST['id_client']))
 {
@@ -93,6 +111,10 @@ if (isset($_POST['validation'], $_POST['id_client']))
 	}
 }
 
+/*-----------------------------------------------------
+Modification du mot de passe de l'utilisateur
+------------------------------------------------------*/
+
 if (isset($_POST['validationmdp'], $_POST['id_client']))
 {
 	if (!empty($_POST['id_client']))
@@ -137,6 +159,47 @@ if (isset($_POST['validationmdp'], $_POST['id_client']))
 				}
 
 				require('./admin/modifclient/modif.php');
+		}
+		else
+		{
+			$error = "<div class='alert alert-danger' role='alert'>L'identifiant ID ou le pseudo de l'utilisateur n'existe pas !</div>";
+		}
+	}
+	else
+	{
+		$error = "<div class='alert alert-danger' role='alert'>L'identifiant ID ou le pseudo de l'utilisateur n'existent pas !</div>";
+	}
+}
+
+
+/*-----------------------------------------------------
+Modification des droits de l'utilisateur
+------------------------------------------------------*/
+
+
+if (isset($_POST['validationperm'], $_POST['id_client']))
+{
+	if (!empty($_POST['id_client']))
+	{
+		$sql = "SELECT * FROM client WHERE id=".$db->quote($_POST['id_client']);
+		$result = $db->query($sql);
+	}
+	else if (!empty($_POST['pseudo_client']))
+	{
+		$sql = "SELECT * FROM client WHERE pseudo=".$db->quote($_POST['pseudo_client']);
+		$result = $db->query($sql);
+	}
+	
+
+	if (!empty($result))
+	{
+		$result = $result->fetchAll();
+		if (isset($result[0]))
+		{
+			$client = $result[0];
+			$identifiant = $client['id'];
+
+			require('./admin/modifclient/modif.php');
 		}
 		else
 		{
