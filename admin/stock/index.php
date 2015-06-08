@@ -15,7 +15,16 @@ if (!empty($_POST['action']) AND $_POST['action'] == 'edit_stock') // Si on dema
 		{
 			if (!empty($_POST['stock'][$i]))
 			{
-				$db->exec('UPDATE product SET stock_quantity='.$_POST['stock'][$i].' WHERE id_product = '.$_POST['id'][$i]);
+				if (is_numeric($_POST['stock'][$i]))
+				{
+					$db->quote($_POST['stock'][$i]);
+					$db->exec('UPDATE product SET stock_quantity='.$_POST['stock'][$i].' WHERE id_product = '.$_POST['id'][$i]);
+				}
+				else
+				{
+					$selectName = $db->query('SELECT name FROM product WHERE id_product = '.$_POST['id'][$i])->fetch(PDO::FETCH_ASSOC);
+					$emptyElem[] = $selectName['name'];
+				}
 			}
 			else
 			{
@@ -24,9 +33,10 @@ if (!empty($_POST['action']) AND $_POST['action'] == 'edit_stock') // Si on dema
 			}
 			$i++;
 		}
-		$_SESSION['message'] = '<div class="alert alert-success" role="alert"><p>Les stocks ont été mis à jour avec succès !<br>Mais les éléments suivants n\'ont pas été mis à jour :<br>';
+		$_SESSION['message'] = '<div class="alert alert-success" role="alert"><p>Les stocks ont été mis à jour avec succès !';
 		if (count($emptyElem) > 0)
 		{
+			$_SESSION['message'] .= '<br>Mais les éléments suivants n\'ont pas été mis à jour (car vide ou pas un nombre) :<br>';
 	        foreach ($emptyElem as $key=>$val)
 	        {
 	            $_SESSION['message'] .= $emptyElem[$key].'<br>';
