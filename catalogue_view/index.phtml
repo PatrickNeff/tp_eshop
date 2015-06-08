@@ -4,42 +4,48 @@
 	<!-- affichage du titre de l"'article en grand et au centre de la page-->
 	<div class="col-md-12 title">
 		
-		<h2><strong><?= $selectsc3['myproduct3_subcategoryname'] ?></strong> - <?= $selectsc3['myproduct3_name'] ?></h2>
+		<h2><strong><?=strip_tags($selectsc3['myproduct3_subcategoryname']) ?></strong> - <?=strip_tags($selectsc3['myproduct3_name']) ?></h2>
 	</div>
 
 	<div class="col-md-6 image-product">
-		<h2> <img src=<?= $selectsc3['myproduct3_image'] ?> ></h2>
+		<h2> <img src=<?=strip_tags($selectsc3['myproduct3_image']) ?> ></h2>
 	</div>
 
 	<div class="col-md-6 content-product">
-		<p><strong><?= $selectsc3['myproduct3_description'] ?></strong></p>
-		<p><?= $selectsc3['myproduct3_price'] ?> €/kg</p>
-		<p><?= "origine : " .$selectsc3['myproduct3_origine'] ?></p>
-		<p><?= "quantité en stock : " .$selectsc3['myproduct3_stockquantity'] ?> kg</p>
+		<p><strong><?=strip_tags($selectsc3['myproduct3_description']) ?></strong></p>
+		<p><?=strip_tags($selectsc3['myproduct3_price']) ?> €/kg</p>
+		<p><?= "origine : " . strip_tags($selectsc3['myproduct3_origine']) ?></p>
+		<p><?= "quantité en stock : " . strip_tags($selectsc3['myproduct3_stockquantity']) ?> kg</p>
 		<p>
-			<div class="lien"><a href="index.php?page=note&amp;id_product=<?=$selectsc3['myproduct3_idproduct']?>">
+			<div class="lien"><a href="index.php?page=note&id_product=<?=$selectsc3['myproduct3_idproduct']?>">
 					<button type="button" class="btn btn-primary" width="200px">donner votre avis</button></a>
 					<!--<img src="images/star.png" alt="star"/><img src="images/star.png" alt="star"/><img src="images/star.png" alt="star"/><img src="images/star.png" alt="star"/><img src="images/star.png" alt="star"/>-->
 			</div>
 		</p>
-		<p><a href="index.php?page=catalogue&amp;id_subcategory=<?=$selectsc3['myproduct3_subcategoryid']?>"><button type="button" class="btn btn-primary">
+		<p><a href="index.php?page=catalogue&id_subcategory=<?=$selectsc3['myproduct3_subcategoryid']?>"><button type="button" class="btn btn-primary">
 					Retour vers la sous catégorie <strong><?=$selectsc3['myproduct3_subcategoryname']?></strong> </button></a></p>
 		<p><a href="index.php?page=catalogue"><button type="button" class="btn btn-primary">Retour vers le catalogue général</button></a></p>
 		<p>
-            
-             <div class="col-md-6 long6">
-                <label for="champAmount" class="">Quantité à commander</label>
-            </div>          
-            <div class="col-md-2 long2">
-                <input type="text" name="amount"  value="<?php echo strip_tags($amount) ?>" id="champAmount" placeholder="0" maxlength="10" class="form-control">
-            </div>
-            <div class="col-md-1 long1">
-                <label > kg</label>
-            </div>
+
+
+			<form method="post" action="index.php?page=ajout_panier&id_product=<?=$selectsc3['myproduct3_idproduct']?>" enctype="multipart/form-data">	
+				
+	            
+	             <div class="col-md-6 long6">
+	                <label for="champAmount" class="">Quantité à commander</label>
+	            </div>          
+	            <div class="col-md-2 long2">
+	                <input type="text" name="amount"  value="<?php echo strip_tags($amount) ?>" id="champAmount" placeholder="0" maxlength="10" class="form-control">
+	            </div>
+	            <div class="col-md-1 long1">
+	                <label > kg</label>
+	            </div>
+
+	            <div class="col-md-6 long6">               
+	                <button type="submit" name="ajout_panier" class="btn btn-primary">Ajouter au panier</button>
+	            </div>
+	        </form>
         </p>
-            <div class="col-md-6 long6">               
-                <a href="index.php?page=catalogue appel panier"><button type="button" class="btn btn-primary">Ajouter au panier</button></a>
-            </div>
 	
 
 	</div>
@@ -65,7 +71,7 @@
 	.image-product, .content-product{
 		float:left;
 		width:50%;
-		height: 400px;
+		max-height: 400px;
 		margin : 0;
 		font-size: 20px;
 	}

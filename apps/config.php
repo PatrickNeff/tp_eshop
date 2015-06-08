@@ -1,10 +1,10 @@
 <?php
-// Connexion DB
-$dbname = 'eshop';
-$host = 'localhost';
-$charset = 'UTF8';
-$dblogin = 'root';
-$dbpwd = 'troiswa';
+// Constante pour connexion DB
+define("DB_HOST", "localhost");
+define("DB_NAME", "eshop");
+define("DB_USER", "root");
+define("DB_PASS", "troiswa");
+define("DB_CHARSET","UTF8");
 // Constantes pour permissions
 define ('CLIENT',                  0x01); // => editer profil + poster avis
 define ('EDITER_AVIS',             0x02);

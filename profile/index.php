@@ -86,11 +86,6 @@ Modification des infos de profil
 
 	  	echo ("<div class='alert alert-success'>Vos informations personnelles ont été modifiées !</div>");
 	}
-	else
-	{
-		echo ("<div class='alert alert-danger'>Vos informations personnelles n'ont pas pu être modifiées !</div>");
-
-	}
 
 
 
@@ -102,23 +97,24 @@ Modification du mot de passe
 		if (isset($_POST['validationmdp']))
 		{
 			$amdp = $_POST['ancienpassword'];
-			$sql = "SELECT * FROM client WHERE id='".$identifiant."'";
+			$sql = "SELECT * FROM client WHERE id=".$identifiant."";
 			$client= $db->query($sql)->fetch();
 			$mdpbdd = $client['password'];
 
 			if (password_verify($amdp, $mdpbdd ))
 			{
-				$nmdp = $db->quote($_POST['nouveaupassword']);
-				$vmdp = $db->quote($_POST['confirmpassword']);
+				$nmdp = $_POST['nouveaupassword'];
+				$vmdp = $_POST['confirmpassword'];
+
 
 				if ($nmdp==$vmdp)
 				{
-					$nmdp = trim($_POST['nouveaupassword']);
 					$nmdp = password_hash($nmdp, PASSWORD_BCRYPT, ["cost" => 10]);
-
-					$sql = "UPDATE client SET password = ".$nmdp." WHERE id = ".$identifiant." " ;
+					$sql = "UPDATE client SET password = ".$db->quote($nmdp)." WHERE id = ".$identifiant." " ;
 					//exécution de la requête SQL:
+
 			  		$requete = $db->exec($sql);
+
 			  		echo "<div class='alert alert-success'>Le nouveau mot de passe a été sauvegardée !</div>";;
 				}
 				else
