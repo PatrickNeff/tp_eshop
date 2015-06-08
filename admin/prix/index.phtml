@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="col-md-12">
+        <?= $message ?>
+		<header class="page-header">
+			<h1>Gestion des prix <small>Mettre à jour les prix des produits</small></h1>
+		</header>
+	</div>
+	<div class="col-md-12">
+		<h2>Liste des produits</h2>
+		<form method="post" action="index.php?page=admin&admin=prix" enctype="multipart/form-data">
+			<div class="table-responsive">
+				<table class="table table-striped">
+				<thead>
+					<th>Sélection</th>
+					<th>Produit</th>
+					<th>Description</th>
+					<th>Prix (€/kg)</th>
+				</thead>
+				<?php
+				displayLoop($selectList);
+				?>
+				</table>
+			</div>
+		  	<button type="submit" name="action" value="edit_price" class="btn btn-primary">Mettre à jour</button>
+		</form>	
+	</div>
+</div>

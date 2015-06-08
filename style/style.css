@@ -21,13 +21,9 @@ a:hover{
 
 .footer {
 	background-color: #222222;
+    margin-top: 100px;
 	padding: 10px 0 50px 0;
 	color: #E3E3E3;
-    width:100%;
-    position:fixed;
-    bottom:0px;
-    margin-top: 203px;
-
 }
 
 .footer h4 {
