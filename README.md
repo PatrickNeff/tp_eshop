@@ -1,5 +1,45 @@
 ========== Projet eshop ==========
 
+Mettre ici les MAJ critique (base de données...)
+
+
+rappel : - les pages existantes sont listées dans la variable àpage de index.php de la racine de notre site
+           si on ajoute des nouvelles pages, il faudras donc rajouter le nom de la nouvelle page à ce niveau.
+         - si le nom de votre base de données n'est pas "eshop", penser à remodifier cette valeur dans le même fichier            au niveau de votre config pour que cela corresponde au nom de votre base
+         
+05/06 patrick. table order
+
+comme j'ai bien refaire les mêmes conneries, j'ai appelé la table commande "order" qui est un mot clé (un peu comme group quoi)
+il faut modifier cela!
+procédure à suivre:
+1) exporter la table order
+2) ouvrir le sql et changer le nom de la table en orders (et pas des champs, même si commance par order...). Bien vérifier pour le modifier partout ou nécessaire
+3) retourner dans la base eshop, copier le fichier dans sql et executer
+On auras donc une table order et une table orders qui seras utilisée. Si vous savez coment virer la table order, je suis preneur :-)
+
+>> Le DROP fonctionne bien.  table/opérations/supprimer la table (DROP) -> écrit en rouge.
+
+
+03/05 Patrick
+
+ajout de colonnes dans la table note : 
+// pensez à changer le nom du dossier notes en note pour être cohérent avec la base
+
+ALTER TABLE `note` ADD `time_create` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'timestamp de mise à jour de l''avis' AFTER `comment` ;
+ALTER TABLE `note` CHANGE `time_create` `time_create` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'timestamp de mise à jour de l''avis'; 
+
+03/05 Fred
+
+Pour ajouter une colonne type d'adresse à la table adresse :
+
+ALTER TABLE `adresse` ADD `type_adresse` VARCHAR( 40 ) NOT NULL AFTER `client_id` ;
+
+
+
+
+
+
+
 29/05:
 
 Mise en place de la DB

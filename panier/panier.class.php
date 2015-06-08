@@ -1,9 +1,11 @@
 <?php
+echo "toto";
+
 class panier{
 
 	private $db;
 
-	public function __construct($db){
+	function __construct($db){
 		if(!isset($_SESSION)){
 			session_start();
 		}
@@ -20,7 +22,7 @@ class panier{
 		}
 	}
 
-	public function recalc(){
+	function recalc(){
 		foreach($_SESSION['panier'] as $product_id => $quantity){
 			if(isset($_POST['panier']['quantity'][$product_id])){
 				$_SESSION['panier'][$product_id] = $_POST['panier']['quantity'][$product_id];
@@ -28,11 +30,11 @@ class panier{
 		}
 	}
 
-	public function count(){
+	function count(){
 		return array_sum($_SESSION['panier']);
 	}
 
-	public function total(){
+	function total(){
 		$total = 0;
 		$ids = array_keys($_SESSION['panier']);
 		if(empty($ids)){
@@ -46,7 +48,7 @@ class panier{
 		return $total;
 	}
 
-	public function add($product_id){
+	function add($product_id){
 		if(isset($_SESSION['panier'][$product_id])){
 			$_SESSION['panier'][$product_id]++;
 		}else{
@@ -54,8 +56,7 @@ class panier{
 		}
 	}
 
-	public function del($product_id){
+	function del($product_id){
 		unset($_SESSION['panier'][$product_id]);
 	}
-
 }

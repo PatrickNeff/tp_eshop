@@ -1,12 +1,46 @@
 <div class="container">
+
+    <?php
+    if (isset($error)) {
+        echo $error;
+    }
+    if (isset($success)) {
+        echo $success;
+    }
+     ?>
+
 	<div class="row">
 
+        <form name="modification" method="post" action="">
+            
+            <div class="form-group">
+                <label for="modifid" class="col-md-5 control-label formconfig">ID à modifier : </label>
+                <div class="col-md-7">
+                    <input type="text" name="id_client"  id="modifid" value="" placeholder="Entrer une ID" maxlength="64" class="form-control formconfig">
+                </div>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="modifpseudo" class="col-md-5 control-label formconfig">Pseudo à modifier : </label>
+                <div class="col-md-7">
+                    <input type="text" name="pseudo_client"  id="modifpseudo" value="" placeholder="Entrer un pseudo" maxlength="32" class="form-control formconfig">
+                </div>
+            </div>
+            
+            <button type="submit" name="valrecherche" class="col-md-12 formconfig">Valider</button>
+
+        </form>
 
 		<div class="col-md-6 col-sd-12" id="rechargeform">
+
+
+
 			<form method="post" action="">
+                <input type="hidden" name="id_client" value="<?=$identifiant?>">
 				<fieldset>                
 
-					<legend>Nouvelles informations :</legend>
+					<legend>Informations :</legend>
 
                     <!--BDD Client-->
 
@@ -118,17 +152,10 @@
 
 		<div class="col-md-6 col-sd-12">
 			<form method="post" action="">
+                <input type="hidden" name="id_client" value="<?=$identifiant?>">
 				<fieldset>
 
 					<legend>Changement de mot de passe :</legend>
-
-                    <div class="form-group">
-                        <label for="ancienpassword" class="col-md-5 control-label formconfig">Ancien mot de passe : </label>
-                        <div class="col-md-7">
-                            <input type="text" name="ancienpassword"  id="ancienpassword" value="" placeholder="Entrer votre ancien mot de passe" maxlength="32" class="form-control formconfig">
-                        </div>
-                    </div>
-                    <br>
 
                     <div class="form-group">
                         <label for="nouveaupassword" class="col-md-5 control-label formconfig">Nouveau mot de passe : </label>

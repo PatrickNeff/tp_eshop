@@ -1,0 +1,67 @@
+<?php
+echo '<tr>
+<td><input type="radio" name="groupId" value="'.$row['id_permission'].'"></td>
+<td>'.$row['name'].'</td>
+<td>'.$row['description'].'</td>
+<td>
+	<select name="c'.$row['id_permission'].'" class="form-control">
+	  <option value="yes">Yes</option>
+	  <option value="no" '.$select_c.'>No</option>
+	</select>
+</td>
+<td>
+	<select name="ea'.$row['id_permission'].'" class="form-control">
+	  <option value="yes">Yes</option>
+	  <option value="no" '.$select_ea.'>No</option>
+	</select>
+</td>
+<td>
+	<select name="sa'.$row['id_permission'].'" class="form-control">
+	  <option value="yes">Yes</option>
+	  <option value="no" '.$select_sa.'>No</option>
+	</select>
+</td>
+<td>
+	<select name="ap'.$row['id_permission'].'" class="form-control">
+	  <option value="yes">Yes</option>
+	  <option value="no" '.$select_ap.'>No</option>
+	</select>
+</td>
+<td>
+	<select name="ept'.$row['id_permission'].'" class="form-control">
+	  <option value="yes">Yes</option>
+	  <option value="no" '.$select_ept.'>No</option>
+	</select>
+</td>
+<td>
+	<select name="sp'.$row['id_permission'].'" class="form-control">
+	  <option value="yes">Yes</option>
+	  <option value="no" '.$select_sp.'>No</option>
+	</select>
+
+</td>
+<td>
+	<select name="es'.$row['id_permission'].'" class="form-control">
+	  <option value="yes">Yes</option>
+	  <option value="no" '.$select_es.'>No</option>
+	</select>
+</td>
+<td>
+	<select name="epx'.$row['id_permission'].'" class="form-control">
+	  <option value="yes">Yes</option>
+	  <option value="no" '.$select_epx.'>No</option>
+	</select>
+</td>
+<td>
+	<select name="ec'.$row['id_permission'].'" class="form-control">
+	  <option value="yes">Yes</option>
+	  <option value="no" '.$select_ec.'>No</option>
+	</select>
+</td>
+<td>
+	<select name="epn'.$row['id_permission'].'" class="form-control">
+	  <option value="yes">Yes</option>
+	  <option value="no" '.$select_epn.'>No</option>
+	</select>
+</td>';
+?>
