@@ -48,7 +48,7 @@ if (isset($_GET['page']))
 	{
 		if (isset($_GET['admin']))
 		{
-			$admin = array('permission','groupe','stock','prix','modifClient');
+			$admin = array('permission','groupe','stock','prix','modifclient');
 			if (in_array($_GET['admin'],$admin))
 			{
 				$pageName = $_GET['page'].'/'.$_GET['admin'];
