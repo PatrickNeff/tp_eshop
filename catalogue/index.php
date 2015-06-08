@@ -63,12 +63,15 @@
 					<td><a href="index.php?page=catalogue_view&amp;id_product='.$row['myproduct2_idproduct'].'">'.$row['myproduct2_name'].'</a></td>	
 					<td>'.$row['myproduct2_price'].' €</td>
 					<td>'.$row['myproduct2_origine'].'</td>
-					<td><img src='.$row['myproduct2_image'].' height="60"></td>
+					<td><img src='.$row['myproduct2_image'].' height="60"></td> 
 					<td>'.$row['myproduct2_stockquantity'].' kg</td>';
 					//echo '<td><a href="index.php?page=catalogue&amp;id_product='.$row['myproduct2_idproduct'].'"></a></td>';	
 					echo '</tr>';
 				}
 			}
+			// Patpack : si on voudrait tester si une image est bien chargé il faudrait le faire en javascript en vérifiant que l'image est bien chargé
+			// et dans le cas contraire, lui mettre notre image par défaut. Top compliqué, on oublie
+
 			require('index.phtml');	
 		} // if voir si besoin requête pour trouver le nom de la sous-categorie
 		else{

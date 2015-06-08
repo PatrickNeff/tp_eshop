@@ -1,7 +1,14 @@
 <?php
 
-$amount = "";
-if (isset($_POST['amount'])) { $login = $_POST["amonut"];}
+/*$amount = "";
+if (isset($_POST['amount'])) { $login = $_POST["amount"];}*/
+//echo $_GET['id_product']; 
+
+$amount = 0;
+if (isset($_POST['amount'])) { 
+	$amount = $_POST["amount"];
+}
+
 
 	// si on a choisis un produit, il faudras aller sur la fiche produit
 	if (!empty($_GET['id_product'])) 
