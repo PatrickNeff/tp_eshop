@@ -8,8 +8,7 @@
 	if (isset($_SESSION["id"])) echo "toto3". $_SESSION["id"] . "<br>";    
 	if (isset($_GET["id_product"])) echo "toto4". $_GET["id_product"]. "<br>";*/
 
-	$_SESSION["id"] = 1;
-
+	//$_SESSION["id"] = 1; patpack forçage provisoire
 
 
 

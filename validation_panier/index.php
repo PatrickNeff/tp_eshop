@@ -143,8 +143,16 @@
 		                                 orders.order_rate          as monpanier1_order_rate,	
 		                                 orders.HT_price            as monpanier1_HT_price,		 		                                 
 		                                 orders.TTC_price           as monpanier1_TTC_price,		                                 	                                 
+<<<<<<< HEAD
 		                                 orders.TTC_price_with_fees as monpanier1_TTC_price_with_fees
 								  FROM   orders
+=======
+		                                 orders.TTC_price_with_fees as monpanier1_TTC_price_with_fees,
+		                                 client.firstname           as monpanier1_firstname,
+		                                 client.lastname            as monpanier1_lastname
+								  FROM   orders
+								  LEFT JOIN client ON orders.client_id = client.id
+>>>>>>> master
 							      WHERE  orders.status = '2'				      
 							      AND    orders.client_id = ". $_SESSION['id'] )->fetchAll(PDO::FETCH_ASSOC);
 
@@ -170,11 +178,20 @@
 		{
 			echo '<tr>
 			<td>'.$row['monpanier1_orderid'].'</td>
+<<<<<<< HEAD
 			<td>'.$row['monpanier1_clientid'].'</td>
 			<td>'.$row['monpanier1_order_rate'].'</td>		
 			<td>'.$row['monpanier1_HT_price'].'</td>			
 			<td>'.$row['monpanier1_TTC_price'].'</td>
 			<td>'.$row['monpanier1_TTC_price_with_fees'].'</td>
+=======
+			<td>'.$row['monpanier1_firstname'].'</td>
+			<td>'.$row['monpanier1_lastname'].'</td>
+			<td>'.$row['monpanier1_order_rate'].'</td>		
+			<td>'.$row['monpanier1_HT_price'].' €</td>			
+			<td>'.$row['monpanier1_TTC_price'].' €</td>
+			<td>'.$row['monpanier1_TTC_price_with_fees'].' €</td>
+>>>>>>> master
 			<td>'.$row['monpanier1_order_date'].'</td>
 			</tr>';
 		}

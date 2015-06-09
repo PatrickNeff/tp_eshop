@@ -1,9 +1,10 @@
 <?php
 require('apps/config.php');
 session_start();
+
 try
 {
-	$db = new PDO('mysql:dbname='.DB_NAME.';host='.DB_HOST.';charset='.DB_CHARSET, DB_USER, DB_PASS);
+	$db = new PDO('mysql:dbname='.$dbname.';host='.$host.';charset='.$charset, $dblogin, $dbpwd);
 	$db->exec("SET CHARACTER SET utf8");
 }
 catch(Exception $get)
@@ -11,6 +12,9 @@ catch(Exception $get)
 	print_r($get);
 	die();
 }
+
+$db = new PDO("mysql:dbname=eshop;host=127.0.0.1", 'root', 'troiswa',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+
 // Sélection des permissions à chaque chargement de page en cas de modification
 if (isset($_SESSION['auth']))
 {
@@ -29,44 +33,23 @@ if (isset($_GET['session']) && $_GET['session'] == 'logout')
 require('apps/functions.php');
 // Page exécutée en...
 $displayStart = generation();
-// =====>	CODE MOCHE	<=====
-//*********************************************
-if (isset($_GET['ajax']))
-{
-	$pageName = $_GET['ajax'];
-	require($pageName.'/index.php');
-	die();
-}
-//*********************************************
+
+// Chemin absolu et configuration serveur
+$path = 'http://'.$_SERVER['SERVER_NAME'].'/ecommerce/';
 // Codes HTTP
 $httpCode = http_response_code();
 // Gestion des pages du site (MVC)
+$page = array('home','login','register','admin','catalogue','profile','search','panier','process','error','catalogue_view','note','ajout_panier', 'validation_panier', 'validation_panier_view');
+
 if (isset($_GET['page']))
 {
-	$page = array('home','login','register','admin','catalogue','profile','search','panier','process','error','catalogue_view','note','ajout_panier');
 	if (in_array($_GET['page'],$page))
 	{
-		if (isset($_GET['admin']))
-		{
-			$admin = array('permission','groupe','stock','prix','modifclient');
-			if (in_array($_GET['admin'],$admin))
-			{
-				$pageName = $_GET['page'].'/'.$_GET['admin'];
-			}
-			else
-			{
-				$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Désolé, la page d\'administration que vous recherché n\'existe pas.</div>';
-				$pageName = 'process';
-			}
-		}
-		else
-		{
-			$pageName = $_GET['page'];
-		}
+		$pageName = $_GET['page'];
 	}
 	else
 	{
-		$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Désolé, la page que vous recherchez n\'existe pas.</div>';
+		$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Sorry, the page you are looking for does not exist</div>';
 		$pageName = 'process';
 	}
 }
@@ -95,7 +78,7 @@ else
 	}
 	else
 	{
-		$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Désolé, l\'URL demandée n\'existe pas.</div>';
+		$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Sorry, you are trying to access an invalid URL</div>';
 		$pageName = 'process';
 	}
 }

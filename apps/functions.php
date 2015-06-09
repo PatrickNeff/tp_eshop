@@ -50,6 +50,20 @@ function generation()
 	$temps = explode(' ', $temps);
 	return $temps[1] + $temps[0];
 }
+
+/*function visualisationPanier($param)	
+
+{ 	
+	if (isset($_SESSION["id"]))
+	{
+		if ($param > 0)
+		{
+			require ('buttonpanier.phtml');
+		}
+	}
+}*/
+
+
 //___________________________
 //Pagination
 /*
