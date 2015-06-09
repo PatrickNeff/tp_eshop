@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
 <?php
 
 if(isset($_GET['order_id'])){
 
-	$request = $db->query("SELECT * FROM order WHERE id=".$_GET['order_id']);
+	$request = $db->query("SELECT * FROM orders WHERE id=".$_GET['order_id']);
 	// ajouter le status de la commande
 
 	$order = $db->query($request)->fetch(PDO::FETCH_ASSOC);
@@ -23,7 +16,3 @@ if(isset($_GET['order_id'])){
 	echo "Vous n'avez pas sélectionné de produit à ajouter au panier";
 }
 ?>
-
-	
-</body>
-</html>
