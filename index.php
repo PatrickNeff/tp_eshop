@@ -4,8 +4,8 @@ session_start();
 
 try
 {
-	$db = new PDO('mysql:dbname='.$dbname.';host='.$host.';charset='.$charset, $dblogin, $dbpwd);
-	$db->exec("SET CHARACTER SET utf8");
+	$db = new PDO('mysql:dbname='.DB_NAME.';host='.DB_HOST.';charset='.DB_CHARSET, DB_USER, DB_PASS);
+$db->exec("SET CHARACTER SET utf8");
 }
 catch(Exception $get)
 {
