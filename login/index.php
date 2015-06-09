@@ -47,7 +47,7 @@ if (isset($_POST['log-in']))
         if (sizeof($badFormat) > 0) {
             $message =  '<div class="alert alert-danger" role="alert">Certains champs contiennent des données invalides. veuillez ressaisir les champs : <br />';
             foreach ($badFormat as $valeur3) {
-                $message .= $labels[$valeur2].'<br />';
+                $message .= $labels[$valeur3].'<br />';
             }
             $message .= '</div>';                
             $champsOK = false;
