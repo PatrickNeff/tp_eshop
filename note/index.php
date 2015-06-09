@@ -12,6 +12,21 @@ else
 		die();
 	}
 }
+if (!isset($_GET['id_product']))
+{
+	header('Location: index.php?page=home');
+	die();
+
+}
+else
+{
+	$select = $db->query("SELECT COUNT(*) AS matchId FROM product WHERE id_product = ".$_GET['id_product'])->fetch(PDO::FETCH_ASSOC);
+	if (!$select['matchId'])
+	{
+		header('Location: index.php?page=home');
+		die();
+	}
+}
 // ============== Formulaire note
 
 
