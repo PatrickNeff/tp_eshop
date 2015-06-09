@@ -2,12 +2,12 @@
 
 if(isset($_GET['order_id'])){
 	// Chemin de la requète & jointure.
-	$request = "SELECT *
+	$request = "SELECT *, oi.id AS my_id
 				FROM `order_item` oi
 				JOIN `orders` os
 				ON os.`id`= oi.`id_order` 
 				JOIN `product` po
-				ON po.`id_product`=oi.`id_product` WHERE id_order=".$_GET['order_id'];
+				ON po.`id_product`=oi.`id_product` WHERE os.status=2 AND id_order=".$_GET['order_id'];
 	//order_id = données transmises lors de l'ajout au panier
 	// var_dump($request);
 	// Récupération des données dans un tableau.
@@ -28,7 +28,9 @@ if(isset($_GET['order_id'])){
 		while($i < sizeof($order))
 		{
 			// ... On affiche :
-			$id_product = $order[$i]["name"];
+			$my_id = $order[$i]["my_id"]
+			$id_product = $order[$i]["id_product"];
+			$name = $order[$i]["name"];
 			$weight = number_format($order[$i]["weight"],3,',',' ');
 			$price_per_kilo = number_format($order[$i]["price_per_kilo"],2,',',' ');
 			$price_total = number_format($order[$i]["price_total"],2,',',' ');

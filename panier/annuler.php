@@ -6,9 +6,11 @@ var_dump($_POST);
 // var_dump($order);
 
 
-// DELETE * FROM product WHERE id_product= ??
+$action ="DELETE * FROM order_item WHERE id=" .$id;
+
 
 
 // Redirection vers index.php?page=panier&order_id=6;
-//header('Location: index.php?page=panier&order_id=6');
+header('Location: index.php?page=panier&order_id=6');
 ?>
+
