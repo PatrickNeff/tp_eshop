@@ -1,4 +1,17 @@
 <?php
+if (!isset($_SESSION['auth']))
+{
+	header('Location: index.php?page=home');
+	die();
+}
+else
+{
+	if (!($_SESSION['permissions'] & CLIENT))
+	{
+		header('Location: index.php?page=home');
+		die();
+	}
+}
 // ============== Formulaire note
 
 
@@ -7,12 +20,6 @@
 	if (isset($_POST["satisfaction"])) echo "toto2". $_POST["satisfaction"] . "<br>";  	 
 	if (isset($_SESSION["id"])) echo "toto3". $_SESSION["id"] . "<br>";    
 	if (isset($_GET["id_product"])) echo "toto4". $_GET["id_product"]. "<br>";*/
-
-	$_SESSION["id"] = 1;
-
-
-
-
 	$message = ''; // Contient les messages d'erreur à afficher
 	if (!empty($_POST['action']) AND ($_POST['action'] == 'publish_note')) // Si le formulaire est validé
 	{
@@ -33,13 +40,12 @@
 			$query = 'INSERT INTO note (client_id, product_id, satisfaction, comment, time_create) 
 					  VALUES ('.$_SESSION["id"].','.$product_id.','.$satisfaction.','. $comment .',NOW())';
 			$db->exec($query);
-			//$_SESSION['message'] = '<div class="alert alert-success" role="alert">Your comment has been successfully published !</div>';
-			//header('Location: index.php?page=process');
-			echo "Your comment has been successfully published !";
+			$_SESSION['message'] = '<div class="alert alert-success" role="alert">Votre avis a été publié avec succès ! <a href="'.$_SERVER['HTTP_REFERER'].'">Retour à la page précédente</a></div>';
+			header('Location: index.php?page=process');
 		}
 		else
 		{
-			$message = '<div class="alert alert-danger" role="alert">All fields are required in order to publish.</div>';
+			$message = '<div class="alert alert-danger" role="alert">Tous les champs sont requis pour publier un avis.</div>';
 		}
 	}
 
@@ -93,50 +99,8 @@
 				$etoile = $etoile . "★"; 
 				$i++;
 			}
-
-					echo '<tr> 												
-					<td>'.$row['myclient_name'].' </td>
-					<td>'.$row['myproduct_name'].'</td>';
-
-					//echo '<td>'.$row['mynote_satisfaction'].'</td>';
-					echo '<td>'.$etoile.'</td>';
-
-					echo '<td>'.$row['mynote_comment'].'</td>
-					<td>'.$row['mynote_timecreate'].'</td>
-				    </tr>';
-					//<td><a href="index.php?page=note_view&amp;id_note='.$row['mynote_id'].'">'.$row['mynote_productid'].'</a></td>	
-					
-
+			require('./note/displayLoop.phtml');
 		}
 	}
-
-	// appel de la page index.phtml uniquement s'il y a dejà des avis.
-	if (isset($select5[0]))
-	{
-		// afficher tout
-	}
-	else
-	{
-		// afficher la possibilité de mettre des notes, mais pas des titres de table vide
-	}
-	require('index.phtml');
-
-	
-
-	$max_caracteres=50;
-
-    /*$texte="Ce texte doit être affiché mais il est trop long, donc il va falloir le tronquer.";
-	// Test si la longueur du texte dépasse la limite
-	if (strlen($texte)>$max_caracteres)
-	{
-	    // Séléction du maximum de caractères
-	    $texte = substr($texte, 0, $max_caracteres);
-	    // Récupération de la position du dernier espace (afin déviter de tronquer un mot)
-	    $position_espace = strrpos($texte, " ");
-	    $texte = substr($texte, 0, $position_espace);
-	    // Ajout des "..."
-	    $texte = $texte."...";
-	}*/
-
+	require('./note/index.phtml');
 ?>
-

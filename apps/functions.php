@@ -63,29 +63,29 @@ function pagination($pagin, $nbPage, $nb, $toward)
 	$list_page = array();
 	for ($i = 1; $i <= $nbPage; $i++)
 	{
-			if (($i <= $nb) OR ($i >= $nbPage - $nb) OR (($i < $pagin + $nb) AND ($i > $pagin - $nb)))
+		if (($i <= $nb) OR ($i >= $nbPage - $nb) OR (($i < $pagin + $nb) AND ($i > $pagin - $nb)))
+		{
+			if ($i == $pagin)
 			{
-				if ($i == $pagin)
-				{
-					$list_page[] = '<span class="pagin">' . $i . '</span>';
-				}
-				else
-				{
-					$list_page[] = '<a class="pagin" href="'.$toward.$i.'#pagination">'.$i.'</a>';
-				}
+				$list_page[] = '<span class="pagin">' . $i . '</span>';
 			}
 			else
 			{
-				if ($i >= $nb AND $i <= $pagin - $nb)
-				{
-					$i = $pagin - $nb;
-				}
-				elseif ($i >= $pagin + $nb AND $i <= $nbPage - $nb)
-				{
-					$i = $nbPage - $nb;
-				}
-			$list_page[] = '...';
+				$list_page[] = '<a class="pagin" href="'.$toward.$i.'#pagination">'.$i.'</a>';
 			}
+		}
+		else
+		{
+			if ($i >= $nb AND $i <= $pagin - $nb)
+			{
+				$i = $pagin - $nb;
+			}
+			elseif ($i >= $pagin + $nb AND $i <= $nbPage - $nb)
+			{
+				$i = $nbPage - $nb;
+			}
+		$list_page[] = '...';
+		}
 	}
 	return $list_page;
 }

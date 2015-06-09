@@ -1,0 +1,9 @@
+<?php			
+	echo '<tr> 												
+	<td>'.$row['myclient_name'].' </td>
+	<td>'.$row['myproduct_name'].'</td>
+	<td>'.$etoile.'</td>
+	<td>'.nl2br(strip_tags($row['mynote_comment'])).'</td>
+	<td>'.systeme_date(strtotime($row['mynote_timecreate'])).'</td>
+    </tr>';
+?>

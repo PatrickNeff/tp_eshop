@@ -1,15 +1,13 @@
 <div class="row">
-
 	<div class="col-md-12"><?= $message ?>
 		<header class="page-header">
-			<h2>Voulez vous laisser un avis pour l'article <strong> <?=$select6['myproduct_name2']?></strong> ?</h2><!-- plante si paqs d'avis--> 
+			<h2>Voulez vous laisser un avis pour l'article <strong> <?=$select6['myproduct_name2']?></strong> ?</h2><!-- plante si pas d'avis--> 
 		</header>
 	</div>
-
 	<div class="col-md-12">
 		<h2>Publier votre avis ici</h2>
 
-		<form method="post" action="index.php?page=note&amp;id_product=<?=$_GET['id_product']?>" enctype="multipart/form-data">
+		<form method="post" action="index.php?page=note&id_product=<?=$_GET['id_product']?>" enctype="multipart/form-data">
 
 			<div class="form-group">
 				<label for="commenty">Commentaire</label>
@@ -26,10 +24,10 @@
 				    <option value="1">bullshit!!!</option>
 				</select>
 			</div>
-
-			<button type="submit" name="action" value="publish_note" class="btn btn-primary">Publier votre commentaire</button>
+			<div class="form-group">
+				<button type="submit" name="action" value="publish_note" class="btn btn-primary">Publier votre avis</button>
+			</div>
 		</form>
-
 		<!-- 'Go to page:'.implode("", pagination($pagin, $nbPage, 3, '?page=note&amp;pagin='));-->
 		<p id="pagination"><?= 'Go to page:'.implode("", pagination($pagin, $nbPage, 3, '?page=note&amp;id_product=' .$_GET['id_product']. '&pagin='));?></p>
 
@@ -46,7 +44,7 @@
 				displayLoop2($select5);
 				?>
 			</table>
-			<p><a href="index.php?page=catalogue_view&amp;id_product=<?=$_GET['id_product']?>"><button type="button" class="btn btn-primary">
+			<p><a href="index.php?page=catalogue_view&id_product=<?=$_GET['id_product']?>"><button type="button" class="btn btn-primary">
 					Retour vers le produit <strong><?=$select6['myproduct_name2']?></strong> </button></a></p> 
 		</div> 
 	</div>
