@@ -25,6 +25,7 @@ if(isset($_GET['order_id']))
 		while($i < sizeof($order))
 		{
 			// ... On affiche :
+			$id_order = $order[$i]["id"];
 			$my_id = $order[$i]["my_id"];
 			$id_product = $order[$i]["id_product"];
 			$name = $order[$i]["name"];

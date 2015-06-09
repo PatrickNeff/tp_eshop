@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 // Constante pour connexion DB
 define("DB_HOST", "localhost");
 define("DB_NAME", "eshop");
@@ -17,7 +16,6 @@ define ('EDITER_STOCK',            0x40);
 define ('EDITER_PRIX',             0x80);
 define ('EDITER_CLIENT',           0x100);
 define ('EDITER_PERMISSION',       0x200);
-=======
 // Connexion DB
 $dbname = 'eshop';
 $host = 'localhost';
@@ -33,5 +31,4 @@ define ('MODIFIER_TOUT_CONTENU',   0x10);
 define ('SUPPRIMER_TOUT_CONTENU',  0x20);
 define ('GERER_MEMBRES',           0x40);
 define ('GERER_PERMISSIONS',       0x80);
->>>>>>> dev-patrick
 ?>

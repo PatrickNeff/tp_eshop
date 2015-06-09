@@ -1,8 +1,8 @@
 $(document).ready(function() // une fois le document chargé
 {
-	$("#valider").click(function(){
-		$(location).attr('href',"index.php?page=validate")
-	});
+	// $("#valider").click(function(){
+	// 	$(location).attr('href',"index.php?page=validate")
+	// });
 	$("#retour").click(function(){
 		$(location).attr('href',"index.php?page=catalogue")
 	});

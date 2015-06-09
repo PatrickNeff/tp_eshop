@@ -259,3 +259,35 @@ img {
         border: solid 1px rgba(51, 122, 183, 0.8); /*Bleu*/
     }
 }
+
+/*===================================
+            Panier
+=====================================*/
+
+    .resultpanier{
+        display:inline-block;
+        width:200px;
+        border:1px solid black;
+    }
+    .annulpanier{
+        display: inline-block;
+        font-weight: bolder;
+        padding: 0;
+    }
+    .annulpanier > input{
+        border: none;
+        border-radius: 100%;
+        background: none;
+        color: red;
+        padding: 0;
+    }
+    #retour{
+        border: none;
+        background: none;
+        font-weight: bold;
+        color: #4596BD;
+        padding-right: 25px;
+    }
+    #retour > img{
+        width: 45px;
+    }
