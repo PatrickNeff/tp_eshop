@@ -1,4 +1,9 @@
 <?php
+if (!isset($_SESSION['auth']))
+{
+	header('Location: index.php?page=home');
+	die();
+}
 
 
 $email = '';
@@ -8,8 +13,6 @@ $phone = '';
 Affichage des infos de profil
 ---------------------------------*/
 
-if (isset($_SESSION['id'])) //isset($_GET["id"]))
-{
 	$identifiant  = $db->quote(intval($_SESSION['id'])); //$_GET["id"]);
 
 
@@ -158,14 +161,4 @@ Réactualisation des infos de profil
 	$country2 = $utilisateur['country'];
 
 	require('index.phtml');
-
-}
-
-else
-{
-	echo "<div class='alert alert-danger' role='alert'>Vous devez vous connecter pour accéder à cette page !</div>";
-}
-
-
-
 ?>
