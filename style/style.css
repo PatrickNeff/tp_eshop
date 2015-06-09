@@ -37,6 +37,13 @@ img {
 	background-color: #222222;
 	padding: 10px 0 50px 0;
 	color: #E3E3E3;
+    min-width:1060px;
+    position : absolute;
+    border:0;
+    right:0;
+    left:0;
+    bottom:0;
+    
 }
 
 .footer h4 {
