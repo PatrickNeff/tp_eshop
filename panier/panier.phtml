@@ -1,11 +1,10 @@
 <div class="row">
-		<div class="col-md-2 resultpanier"> <?php echo $id_product ?> </div>
 		<div class="col-md-2 resultpanier"> <?php echo $name ?> </div>
 		<div class="col-md-2 resultpanier"> <?php echo $weight ?> kg</div>
 		<div class="col-md-2 resultpanier"> <?php echo $price_per_kilo ?> €</div>
 		<div class="col-md-2 resultpanier"> <?php echo $price_total ?> €</div>
-		<form class="annulpanier" action="index.php?page=panier&action=annuler" method="POST">
-			<input type="hidden" name='id_product' value="<?php $id_product ?>">
+		<form class="col-md-2 annulpanier" action="index.php?page=panier&action=annuler" method="POST">
+			<input type="hidden" name='my_id' value="<?= $my_id ?>">
 			<input type="submit" value="X">
 		</form>
 </div>
