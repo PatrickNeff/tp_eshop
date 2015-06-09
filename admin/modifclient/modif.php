@@ -75,30 +75,13 @@ Modification des permissions
 if (isset($_POST['validationperm']))
 {
 
-	if (isset($_POST["droits"]) && $_POST["droits"]==3)
-	{
-		$niveau_perm= trim($_POST["droits"]);
-		echo "<div class='alert alert-success'><p class='ok'>L'utilisateur est désormais administrateur !</p></div>";
-	}
-	elseif (isset($_POST["droits"]) && $_POST["droits"]==2)
-	{
-		$niveau_perm= trim($_POST["droits"]);
-		echo "<div class='alert alert-success'><p class='ok'>L'utilisateur est désormais modérateur !</p></div>";
-	}
-	elseif (isset($_POST["droits"]) && $_POST["droits"]==1)
-	{
-		$niveau_perm= trim($_POST["droits"]);
-		echo "<div class='alert alert-success'><p class='ok'>L'utilisateur possède désormais les droits et permissions de base !</p></div>";
-	}
-	else
-	{
-		$niveau_perm= '';
-		echo "<div class='alert alert-success'><p class='ok'>Vous avez enlevez tout les droits à l'utilisateur !</p></div>";
-	}
+	$niveau_perm = $_POST["droits"];
 
 	$sql = "UPDATE client SET permission_id = '".$niveau_perm."' WHERE id = '".$identifiant."' " ;
 	//exécution de la requête SQL:
 	$requete = $db->exec($sql);
+
+	echo "<div class='alert alert-success'><p class='ok'>Les droits de l'utilisateur ont été modifiés !</p></div>";
 
 }
 
