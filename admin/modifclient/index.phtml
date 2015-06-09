@@ -11,8 +11,10 @@
 
 	<div class="row">
         <div class="col-md-12">
+
             <form name="modification" method="post" action="">
-                
+                <legend>Recherche de l'utilisateurs :</legend>
+
                 <div class="form-group">
                     <label for="modifid" class="col-md-5 control-label formconfig">Recherche d'ID à modifier : </label>
                     <div class="col-md-7">
@@ -31,6 +33,13 @@
                 <button type="submit" name="valrecherche" class="col-md-12 formconfig">Valider</button>
 
             </form>
+
+            <fieldset>
+                <legend>Liste des utilisateurs (ID/pseudo) :</legend>
+                <ul>
+                    <?php require('./admin/modifclient/user.php');  ?>
+                </ul>
+            </fieldset>
         </div>
 
 		<div class="col-md-6 col-sd-12" id="rechargeform">
@@ -187,20 +196,22 @@
 
                     <legend>Changement des permissions de l'utilisateur :</legend>
 
-                           <label for="formdroits">Sélectionner les droits que vous souhaitez attribuer à l'utilisateur</label><br />
+                            <p>L'utilisateur fait parti actuellement du groupe : <?php echo $perm_user; ?></p>
+                            
 
-                           <select name="droits" id="formdroits" class="col-md-12 formconfig">
+                            <label for="formdroits">Sélectionner les droits que vous souhaitez attribuer à l'utilisateur</label><br />
+
+                            <select name="droits" id="formdroits" class="col-md-12 formconfig">
 
                                 <?php require('./admin/modifclient/menuperm.php');  ?>
 
-                               <option value="0">Suppression des droits</option>
+                                <option value="0">Suppression des droits</option>
 
-                           </select>
-                    
+                            </select>
+
                     <button type="submit" name="validationperm" class="col-md-12 formconfig">Modifier les droits</button>
 
                 </fieldset>
-
 
             </form>
 
