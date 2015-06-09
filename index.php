@@ -34,16 +34,12 @@ require('apps/functions.php');
 // Page exécutée en...
 $displayStart = generation();
 
-// Codes HTTP
-$httpCode = http_response_code();
-// Gestion des pages du site (MVC)
-$page = array('home','login','register','admin','catalogue','profile','search','panier','process','error');
 // Chemin absolu et configuration serveur
 $path = 'http://'.$_SERVER['SERVER_NAME'].'/ecommerce/';
 // Codes HTTP
 $httpCode = http_response_code();
 // Gestion des pages du site (MVC)
-$page = array('home','login','register','admin','catalogue','profile','search','panier','process','error','catalogue_view','note');
+$page = array('home','login','register','admin','catalogue','profile','search','panier','process','error','catalogue_view','note','ajout_panier', 'validation_panier', 'validation_panier_view');
 
 if (isset($_GET['page']))
 {
