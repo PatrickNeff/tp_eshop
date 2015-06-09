@@ -14,6 +14,7 @@ $zipcode2 = "";
 $city2 = "";
 $country2 = "";
 $identifiant = "";
+$perm_user = "";
 
 /*$sql = "SELECT * FROM client";
 $tab_utilisateurs = $db->query($sql)->fetchAll();
@@ -29,7 +30,7 @@ while (sizeof($tab_utilisateurs)) {
 Recherche existence de l'utilisateur par ID ou pseudo
 ------------------------------------------------------*/
 
-if (isset($_POST['valrecherche'], $_POST['id_client'], $_POST['pseudo_client']))
+if (isset($_POST['valrecherche'], $_POST['id_client'], $_POST['pseudo_client']))   // si le bouton valrecherche avec les champs id_client et pseudo_client existent
 {
 	if (!empty($_POST['id_client']))
 	{
@@ -39,7 +40,7 @@ if (isset($_POST['valrecherche'], $_POST['id_client'], $_POST['pseudo_client']))
 	{
 		$sql = "SELECT * FROM client WHERE pseudo=".$db->quote($_POST['pseudo_client']);
 	}
-	$result = $db->query($sql);
+	$result = $db->query($sql);  
 	if ($result)
 	{
 		$result = $result->fetchAll();
@@ -55,9 +56,9 @@ if (isset($_POST['valrecherche'], $_POST['id_client'], $_POST['pseudo_client']))
 Modification informations de l'utilisateur
 ------------------------------------------------------*/
 
-if (isset($_POST['validation'], $_POST['id_client']))
+if (isset($_POST['validation'], $_POST['id_client'])) // si le bouton validation avec le champ id_client existent
 {
-	if (!empty($_POST['id_client']))
+	if (!empty($_POST['id_client']))   // si l'id_client input html n'est pas vide ou nul
 	{
 		$sql = "SELECT * FROM client WHERE id=".$db->quote($_POST['id_client']);
 		$result = $db->query($sql);
@@ -175,7 +176,7 @@ if (isset($_POST['validationmdp'], $_POST['id_client']))
 /*-----------------------------------------------------
 Modification des droits de l'utilisateur
 ------------------------------------------------------*/
-
+	
 
 if (isset($_POST['validationperm'], $_POST['id_client']))
 {
@@ -232,6 +233,11 @@ if ($identifiant !== '')
 	$zipcode2 = $adresse2['zipcode'];
 	$city2 = $adresse2['city'];
 	$country2 = $adresse2['country'];
+
+	$perm_user = $client['permission_id'];
+	$sql = "SELECT * FROM permission WHERE id_permission='".$perm_user."'";
+	$permutil = $db->query($sql)->fetch();
+	$perm_user = $permutil['name'];
 }
 
 

@@ -72,33 +72,31 @@ if (isset($_POST['validationmdp']))
 Modification des permissions
 ---------------------------------*/
 
-if (isset($_POST['validationperm']))
+
+
+
+if (isset($_POST['validationperm'])) // Si l'on appuie sur le bouton validationperm
 {
 
-	if (isset($_POST["droits"]) && $_POST["droits"]==3)
+	$niveau_perm = $_POST["droits"]; // le niveau de perm prend la valeur du champs html "droits"
+
+	$sql = "SELECT * FROM permission WHERE id_permission= '".$niveau_perm."' ";
+	$result = $db->query($sql);
+	$tab_perm = $result->fetchAll();
+
+
+	if (!empty($tab_perm) || $niveau_perm==0)
 	{
-		$niveau_perm= trim($_POST["droits"]);
-		echo "<div class='alert alert-success'><p class='ok'>L'utilisateur est désormais administrateur !</p></div>";
-	}
-	elseif (isset($_POST["droits"]) && $_POST["droits"]==2)
-	{
-		$niveau_perm= trim($_POST["droits"]);
-		echo "<div class='alert alert-success'><p class='ok'>L'utilisateur est désormais modérateur !</p></div>";
-	}
-	elseif (isset($_POST["droits"]) && $_POST["droits"]==1)
-	{
-		$niveau_perm= trim($_POST["droits"]);
-		echo "<div class='alert alert-success'><p class='ok'>L'utilisateur possède désormais les droits et permissions de base !</p></div>";
+		$sql = "UPDATE client SET permission_id = '".$niveau_perm."' WHERE id = '".$identifiant."' " ;  // Modification dans la table client des permissions pour avoir la valeur validée là où l'ID est celle de l'utilisateur.
+		//exécution de la requête SQL:
+		$requete = $db->exec($sql);
+
+		echo "<div class='alert alert-success'><p class='ok'>Les droits de l'utilisateur ont été modifiés !</p></div>";
 	}
 	else
 	{
-		$niveau_perm= '';
-		echo "<div class='alert alert-success'><p class='ok'>Vous avez enlevez tout les droits à l'utilisateur !</p></div>";
+		echo "<div class='alert alert-danger' role='alert'>Vous avez entré une permission qui n'existe pas !</div>";
 	}
-
-	$sql = "UPDATE client SET permission_id = '".$niveau_perm."' WHERE id = '".$identifiant."' " ;
-	//exécution de la requête SQL:
-	$requete = $db->exec($sql);
 
 }
 

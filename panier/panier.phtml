@@ -1,13 +1,20 @@
 <div class="row">
-		<div class="col-md-3"> <?php echo $id_product ?> </div>
-		<div class="col-md-3"> <?php echo $weight ?> </div>
-		<div class="col-md-3"> <?php echo $price_per_kilo ?> </div>
-		<div class="col-md-3"> <?php echo $price_total ?> </div>
+		<div class="col-md-2 resultpanier"> <?php echo $id_product ?> </div>
+		<div class="col-md-2 resultpanier"> <?php echo $weight ?> kg</div>
+		<div class="col-md-2 resultpanier"> <?php echo $price_per_kilo ?> €</div>
+		<div class="col-md-2 resultpanier"> <?php echo $price_total ?> €</div>
+		<form class="col-md-2 annulpanier" action="index.php?page=panier&action=annuler" method="POST">
+			<input type="hidden" name='id_product' value="<?= $id_product ?>">
+			<input type="submit" value="X">
+		</form>
 </div>
 <style>
-	.col-md-3{
+	.resultpanier{
 		display:inline-block;
-		width:100px;
+		width:200px;
 		border:1px solid black;
+	}
+	.annulpanier{
+		display: inline-block;
 	}
 </style>
