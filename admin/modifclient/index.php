@@ -175,7 +175,7 @@ if (isset($_POST['validationmdp'], $_POST['id_client']))
 /*-----------------------------------------------------
 Modification des droits de l'utilisateur
 ------------------------------------------------------*/
-
+	
 
 if (isset($_POST['validationperm'], $_POST['id_client']))
 {

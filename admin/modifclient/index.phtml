@@ -187,37 +187,15 @@
 
                     <legend>Changement des permissions de l'utilisateur :</legend>
 
-                    <div class="form-group">
-                        <label for="utilisateurform" class="col-md-5 control-label formconfig">Droits d'utilisateur : </label>
-                        <div class="col-md-7">
-                            <input type="radio" name="droits"  id="utilisateurform" value="1" class="form-control formconfig">
-                        </div>
-                    </div>
-                    <br>
+                           <label for="formdroits">Sélectionner les droits que vous souhaitez attribuer à l'utilisateur</label><br />
 
-                    <div class="form-group">
-                        <label for="modoform" class="col-md-5 control-label formconfig">Droits de modérateur : </label>
-                        <div class="col-md-7">
-                            <input type="radio" name="droits"  id="modoform" value="2" class="form-control formconfig">
-                        </div>
-                    </div>
-                    <br>
+                           <select name="droits" id="formdroits" class="col-md-12 formconfig">
 
-                    <div class="form-group">
-                        <label for="adminform" class="col-md-5 control-label formconfig">Droits d'administrateur : </label>
-                        <div class="col-md-7">
-                            <input type="radio" name="droits"  id="adminform" value="3" class="form-control formconfig">
-                        </div>
-                    </div>
-                    <br>
+                                <?php require('./admin/modifclient/menuperm.php');  ?>
 
-                    <div class="form-group">
-                        <label for="usererror" class="col-md-5 control-label formconfig">Suppression des droits : </label>
-                        <div class="col-md-7">
-                            <input type="radio" name="droits"  id="usererror" value="0" class="form-control formconfig">
-                        </div>
-                    </div>
-                    <br>
+                               <option value="0">Suppression des droits</option>
+
+                           </select>
                     
                     <button type="submit" name="validationperm" class="col-md-12 formconfig">Modifier les droits</button>
 
