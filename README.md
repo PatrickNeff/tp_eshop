@@ -8,6 +8,12 @@ rappel : - les pages existantes sont listées dans la variable àpage de index.p
          - si le nom de votre base de données n'est pas "eshop", penser à remodifier cette valeur dans le même fichier            au niveau de votre config pour que cela corresponde au nom de votre base
          
 
+09/06 mon lien vers ma page 			<p><a href="index.php?page=validation_panier&id_order=<?=$selectcv9['monpanier1a_orderid']?>">
+					<button type="button" class="btn btn-primary" width="200px">valider le panier</button></a>
+			</p>
+			
+faut juste changer la variable $selectcv9['monpanier1a_orderid'] par ce que tu as .			
+
 08/06 15h30 Patrick mise à jour de la table orders
 
            3 champs sont à rajouter dans la table orders afin d'avoir tout ce qu'il nous faut
