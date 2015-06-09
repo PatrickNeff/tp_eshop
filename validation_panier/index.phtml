@@ -1,0 +1,54 @@
+<div class="row">
+
+	<div class="col-md-12"><?= $message ?>
+		<header class="page-header">
+			<h1>RÉCAPITULATIF DE VOTRE COMMANDE</h1>
+		</header>
+	</div>
+
+	<div class="col-md-12">
+
+		<div class="table-responsive">
+		<form method="post" action="index.php?page=validation_panier&id_order=<?=$_GET['id_order']?>" enctype="multipart/form-data">
+
+			<div class="form-group">
+				<label for="adresse">Adresse</label><br>
+				<!--<input type="text" class="form-control" id="satisfaction" name="satisfaction"> -->
+				<select name="adresse">
+				    <option value="1" selected >livraison</option>
+				    <option value="2">Principale</option>
+				    <option value="3">Secondaire</option>
+				</select>
+			</div>
+						<div class="form-group">
+				<label for="payment">Mode de paiement</label><br>
+				<!--<input type="text" class="form-control" id="satisfaction" name="satisfaction"> -->
+				<select name="payment">
+				    <option value="1" selected >mastercard</option>
+				    <option value="2">visa</option>
+				    <option value="3">paypal</option>
+				</select>
+			</div>
+
+			<button type="submit" name="action" value="validate_panier" class="btn btn-primary">Valider la commande</button>
+			<button type="submit" name="action" value="cancel_panier" class="btn btn-primary">Annuler la commande</button>
+		</form>
+
+			<table class="table table-striped">
+				<thead>
+					<th>Numéro commande</th>
+					<th>Nom client</th>	
+					<th>Prénom client</th>					
+					<th>Taux de TVA</th>
+					<th>Prix HT</th>	
+					<th>Prix TTC hors port</th>	
+					<th>Prix TTC avec port</th>						
+					<th>Date de création</th>					
+				</thead>
+				<?php
+				displayLoop($select1);
+				?>
+			</table>
+		</div> 
+	</div>
+</div>

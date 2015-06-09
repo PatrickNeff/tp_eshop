@@ -138,10 +138,8 @@ if (isset($_POST['register']))
                                '. $db->quote($lastname)  .', 
                                '. $db->quote($email)     .',                       
                                '. $db->quote($phone)     .',
-                               '. $db->quote($permission_id).',
+                               '.$permission_id.', 
                                 NOW() )';
-echo ($request1);
-
             // faire un strtotime quand on récupère la donnée
             $db->exec($request1);
             $_SESSION['message'] = '<div class="alert alert-success" role="alert">Vous avez bien été enregistré</div>';

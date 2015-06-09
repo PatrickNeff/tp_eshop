@@ -5,6 +5,8 @@
 	$pagin = "";
 	$nbPage = "";
 
+	//echo "id de session : " . $_SESSION["id"] . "<br>";
+
 	// si on a choisis une sous catégorie, il faudras lister tous les articles de cette sous catégorie
 	if (!empty($_GET['id_subcategory']))// || !empty($_GET['id_product'])) 
 	//if (!empty($_POST['action']) AND $_POST['action'] == 'select_sc') // Si le formulaire est validé
@@ -54,7 +56,13 @@
 
 			function displayLoop($selectsc2)
 			{	
-				echo '<tr>'; // attention patpack, modif lien			
+				echo '<tr>'; // attention patpack, modif lien	
+
+				$amount = 0;
+				if (isset($_POST['amount'])) { 
+					$amount = $_POST["amount"];
+				}	
+
 				foreach ($selectsc2 as $row)
 				{
 					echo '<tr> 
@@ -65,12 +73,16 @@
 					<td>'.$row['myproduct2_origine'].'</td>
 					<td><img src='.$row['myproduct2_image'].' height="60"></td> 
 					<td>'.$row['myproduct2_stockquantity'].' kg</td>';
-					//echo '<td><a href="index.php?page=catalogue&amp;id_product='.$row['myproduct2_idproduct'].'"></a></td>';	
+
 					echo '</tr>';
 				}
 			}
 			// Patpack : si on voudrait tester si une image est bien chargé il faudrait le faire en javascript en vérifiant que l'image est bien chargé
 			// et dans le cas contraire, lui mettre notre image par défaut. Top compliqué, on oublie
+			// ajouter les quantités à cette page : marche pas. 
+			// <td><form method="post" action="index.php?page=ajout_panier&id_product='.$row['myproduct2_idproduct'].'" enctype="multipart/form-data">	</td>
+			//	<td> quantité à commander en kg <input type="text" name="amount" width="150px"  value="' . strip_tags($amount) . '" id="champAmount" placeholder="0" maxlength="10" class="form-control"></td>
+			//	<td><button type="submit" name="ajout_panier" class="btn btn-primary">Ajouter au panier</button></td>';
 
 			require('index.phtml');	
 		} // if voir si besoin requête pour trouver le nom de la sous-categorie
