@@ -8,7 +8,7 @@
 	</div>
 
 	<div class="col-md-6 image-product">
-		<h2> <img src=<?=strip_tags($selectsc3['myproduct3_image']) ?> ></h2>
+		<h2> <img src=<?=strip_tags($selectsc3['myproduct3_image']) ?>  ></h2>
 	</div>
 
 	<div class="col-md-6 content-product">
@@ -41,11 +41,19 @@
 	                <label > kg</label>
 	            </div>
 
-	            <div class="col-md-6 long6">               
+	            <div class="col-md-6 col-md-offset long6">               
 	                <button type="submit" name="ajout_panier" class="btn btn-primary">Ajouter au panier</button>
 	            </div>
 	        </form>
-        </p>
+	    </p>
+
+	        <p><a href="index.php?page=panier&order_id=<?=$selectcv9['monpanier1a_orderid']?>">
+	        	<button type="button" class="btn btn-primary">Voir le panier</button></a>
+			</p>
+
+			<p><a href="index.php?page=validation_panier&id_order=<?=$selectcv9['monpanier1a_orderid']?>">
+					<button type="button" class="btn btn-primary" width="200px">valider le panier</button></a>
+			</p>
 	
 
 	</div>
@@ -85,7 +93,8 @@
 	}
 
 	img{
-		width : 100%;
+		max-width : 100%;
+		max-height: 100%;
 	}
 
 	.lien{
