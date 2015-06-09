@@ -1,6 +1,5 @@
 <?php
 
-
 if(isset($_GET['order_id'])){
 	// Chemin de la requète & jointure.
 	$request = "SELECT *
@@ -15,6 +14,11 @@ if(isset($_GET['order_id'])){
 	$order = $db->query($request)->fetchAll(PDO::FETCH_ASSOC);
 
 	// var_dump($order);
+
+	$request = $db->query("SELECT * FROM orders WHERE id=".$_GET['order_id']);
+	// ajouter le status de la commande
+
+
 	// Si les données que l'on récupère ont un status qui est égal à deux,...
 	if($order[!NULL]['status'] == 2){
 		// ... Alors on récupère tous les tableaux :
@@ -55,9 +59,5 @@ if (isset($_GET['action']))
 		require('panier/annuler.php');
 	}
 }
-
-	
-
-
 
 ?>
