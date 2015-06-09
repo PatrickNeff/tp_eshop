@@ -7,6 +7,22 @@ rappel : - les pages existantes sont listées dans la variable àpage de index.p
            si on ajoute des nouvelles pages, il faudras donc rajouter le nom de la nouvelle page à ce niveau.
          - si le nom de votre base de données n'est pas "eshop", penser à remodifier cette valeur dans le même fichier            au niveau de votre config pour que cela corresponde au nom de votre base
          
+
+08/06 15h30 Patrick mise à jour de la table orders
+
+           3 champs sont à rajouter dans la table orders afin d'avoir tout ce qu'il nous faut
+           - l'identifiant de l'adresse qui auras été choisis par le client pour sa livraison
+           - les frais de port (5 euros en dessous de 50 euros, gratuit au delà)
+           - le coup total après frais de port
+           
+           si vous voyez autre chose, je suis preneur.
+           En attendant, vous pouvez executer la commande suivante pour créer ces champs :
+           
+ALTER TABLE  `orders` ADD  `shipping_fees` DECIMAL( 8, 2 ) NOT NULL COMMENT  'frais de port' AFTER  `order_rate` ;
+ALTER TABLE  `orders` ADD  `TTC_price_with_fees` DECIMAL( 8, 2 ) NOT NULL COMMENT  'prix avec frais de port' AFTER  `TTC_price` ;
+ALTER TABLE  `orders` ADD  `adresse_id` INT( 11 ) NOT NULL COMMENT  'identifiant de l''adresse du client' AFTER  `client_id` ;
+
+
 05/06 patrick. table order
 
 comme j'ai bien refaire les mêmes conneries, j'ai appelé la table commande "order" qui est un mot clé (un peu comme group quoi)

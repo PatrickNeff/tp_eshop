@@ -1,4 +1,4 @@
-<div class="container">
+
 
     <?php
     if (isset($error)) {
@@ -10,27 +10,28 @@
      ?>
 
 	<div class="row">
-
-        <form name="modification" method="post" action="">
-            
-            <div class="form-group">
-                <label for="modifid" class="col-md-5 control-label formconfig">ID à modifier : </label>
-                <div class="col-md-7">
-                    <input type="text" name="id_client"  id="modifid" value="" placeholder="Entrer une ID" maxlength="64" class="form-control formconfig">
+        <div class="col-md-12">
+            <form name="modification" method="post" action="">
+                
+                <div class="form-group">
+                    <label for="modifid" class="col-md-5 control-label formconfig">Recherche d'ID à modifier : </label>
+                    <div class="col-md-7">
+                        <input type="text" name="id_client"  id="modifid" value="" placeholder="Entrer une ID" maxlength="64" class="form-control formconfig">
+                    </div>
                 </div>
-            </div>
 
-            
-            <div class="form-group">
-                <label for="modifpseudo" class="col-md-5 control-label formconfig">Pseudo à modifier : </label>
-                <div class="col-md-7">
-                    <input type="text" name="pseudo_client"  id="modifpseudo" value="" placeholder="Entrer un pseudo" maxlength="32" class="form-control formconfig">
+                
+                <div class="form-group">
+                    <label for="modifpseudo" class="col-md-5 control-label formconfig">Recherche de pseudo à modifier : </label>
+                    <div class="col-md-7">
+                        <input type="text" name="pseudo_client"  id="modifpseudo" value="" placeholder="Entrer un pseudo" maxlength="32" class="form-control formconfig">
+                    </div>
                 </div>
-            </div>
-            
-            <button type="submit" name="valrecherche" class="col-md-12 formconfig">Valider</button>
+                
+                <button type="submit" name="valrecherche" class="col-md-12 formconfig">Valider</button>
 
-        </form>
+            </form>
+        </div>
 
 		<div class="col-md-6 col-sd-12" id="rechargeform">
 
@@ -180,6 +181,52 @@
 
 			</form>
 
-		</div>
+            <form method="post" action="">
+                <input type="hidden" name="id_client" value="<?=$identifiant?>">
+                <fieldset>
+
+                    <legend>Changement des permissions de l'utilisateur :</legend>
+
+                    <div class="form-group">
+                        <label for="utilisateurform" class="col-md-5 control-label formconfig">Droits d'utilisateur : </label>
+                        <div class="col-md-7">
+                            <input type="radio" name="droits"  id="utilisateurform" value="1" class="form-control formconfig">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="modoform" class="col-md-5 control-label formconfig">Droits de modérateur : </label>
+                        <div class="col-md-7">
+                            <input type="radio" name="droits"  id="modoform" value="2" class="form-control formconfig">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="adminform" class="col-md-5 control-label formconfig">Droits d'administrateur : </label>
+                        <div class="col-md-7">
+                            <input type="radio" name="droits"  id="adminform" value="3" class="form-control formconfig">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="usererror" class="col-md-5 control-label formconfig">Suppression des droits : </label>
+                        <div class="col-md-7">
+                            <input type="radio" name="droits"  id="usererror" value="0" class="form-control formconfig">
+                        </div>
+                    </div>
+                    <br>
+                    
+                    <button type="submit" name="validationperm" class="col-md-12 formconfig">Modifier les droits</button>
+
+                </fieldset>
+
+
+            </form>
+
 	</div>
-</div>
+
+
+<br>

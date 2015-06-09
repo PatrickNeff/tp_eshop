@@ -1,0 +1,27 @@
+<div class="row fiche-produit">
+
+		<!-- affichage de l'article ajouté au panier-->
+	<div class="col-md-12 title">
+		
+		<h2><strong><?= strip_tags(!empty($vide)) ? "ajout au panier de l article " . strip_tags($select['monproduit_name']) . " en quantité" : ""; ?>
+			 <?= strip_tags(!empty($vide)) ? strip_tags($_POST['amount']) : ""; ?></strong> 
+		</h2>
+	</div>
+	<div class="col-md-12 image-product">
+
+		<p>
+			<a href="index.php?page=catalogue_view&id_product=<?=$_GET['id_product']?>">
+				<button type="button" class="btn btn-primary">retour vers le produit <?= $select['monproduit_name'] ?>
+				</button>
+				<!--page=catalogue_view&id_product=6 -->
+			</a>
+		</p>
+		<p>
+			<a href="index.php?page=catalogue"><button type="button" class="btn btn-primary">Retour vers le catalogue général</button></a>
+		</p>
+		<!-- + lien vers panier -->
+
+	</div>
+</div>
+
+
