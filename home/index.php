@@ -13,7 +13,7 @@ function displayLoop1($displayLastProd)
 	}
 }
 //Sélection produits stock bas
-$displayLowStock = $db->query('SELECT id_product, name, stock_quantity FROM product WHERE stock_quantity <= 10 ORDER BY stock_quantity DESC')->fetchAll(PDO::FETCH_ASSOC);
+$displayLowStock = $db->query('SELECT id_product, name, stock_quantity FROM product WHERE stock_quantity <= 10 AND stock_quantity > 0 ORDER BY stock_quantity DESC')->fetchAll(PDO::FETCH_ASSOC);
 function displayLoop2($displayLowStock)
 {
 	foreach ($displayLowStock as $row)

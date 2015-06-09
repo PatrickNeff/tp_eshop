@@ -95,8 +95,8 @@ else
 	}
 	else
 	{
-		$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Désolé, l\'URL demandée n\'existe pas.</div>';
-		$pageName = 'process';
+		header('Location: ./index.php?page=process');
+		die();
 	}
 }
 require('views/index.phtml');
