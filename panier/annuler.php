@@ -1,13 +1,16 @@
 <?php
-var_dump($_POST);
 
-var_dump($id_product);
+$my_id = $_POST['my_id'];
 
+echo('my_id');
 
-// DELETE * FROM product WHERE id_product= ??
+$request = "DELETE FROM order_item WHERE id=".$my_id;
 
+echo($request);
+
+$db->exec($request);
 
 // Redirection vers index.php?page=panier&order_id=6;
-// header('Location: index.php?page=panier&order_id=6');
+header('Location: index.php?page=panier&order_id=6');
 
 ?>
