@@ -46,9 +46,16 @@ si pas de quantité choisie
 
 */
 
+<<<<<<< HEAD
 $_SESSION['id']  = 1; // danger patpack forçage provisoire
 
 //echo "début ajout panier<br>";
+=======
+//$_SESSION['id']  = 1; // danger patpack forçage provisoire
+
+//echo "début ajout panier<br>";
+//echo "id de session : " . $_SESSION["id"];
+>>>>>>> dev-patrick
 
 // initialisation variables de travail
 $amount = 0;                  // quantité qu'il tente de rajouter au panier
@@ -88,6 +95,12 @@ $select = $db->query("SELECT    COUNT(*)            as nbRows,
 //echo "la quantité en stock sur le produit  " . $select['monproduit_name'] . " est de " . $select['monproduit_stockquantity'] . "<br>";
 
 
+<<<<<<< HEAD
+=======
+// foreach ($_POST as $field => $value) { echo "$field = $value<br />ZZZ\n";} patpack trace tous les posts
+
+
+>>>>>>> dev-patrick
 // si on a cliqué sur le bouton ajouter panier avec quantité
 if (isset($_POST['ajout_panier']) && (isset($_POST['amount'])) && (!empty($_POST['amount']))) 
 {
@@ -233,8 +246,13 @@ if (isset($_POST['ajout_panier']) && (isset($_POST['amount'])) && (!empty($_POST
 				$amount_panier_order = $amount;
 				$amount_order = $amount;
 
+<<<<<<< HEAD
 				//echo "article existant pas encore dans votre panier. Quantité totale à commander : " . $amount_panier_order  . 
 				//" et quantité totale en cours de commande " . $amount_all_panier_order . "<br>";
+=======
+				/*echo "article existant pas encore dans votre panier. Quantité totale à commander : " . $amount_panier_order  . 
+				" et quantité totale en cours de commande " . $amount_all_panier_order . "<br>";*/
+>>>>>>> dev-patrick
 
 				// si il reste du stock, ajout de la quantité choisis au panier	
 				if ($amount_all_panier_order > $amount_stock )
@@ -302,7 +320,11 @@ if (isset($_POST['ajout_panier']) && (isset($_POST['amount'])) && (!empty($_POST
 
 			if ($amount_panier_order > $amount_stock )
 			{
+<<<<<<< HEAD
 				echo "<div class='alert alert-danger' role='alert'>vous ne pouvez pas rentrer une quantité supérieure au stock !</div>";
+=======
+				//echo "<div class='alert alert-danger' role='alert'>vous ne pouvez pas rentrer une quantité supérieure au stock !</div>";
+>>>>>>> dev-patrick
 				$vide = "";
 			}
 
