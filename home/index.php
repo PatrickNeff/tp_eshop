@@ -6,7 +6,7 @@ function displayLoop1($displayLastProd)
 	foreach ($displayLastProd as $row)
 	{
 		$name = strip_tags($row['name']);
-		$desc = strip_tags($row['description']);
+		$desc = nl2br(strip_tags($row['description']));
 		$origin = strip_tags($row['origine']);
 		$id_product = $row['id_product'];
 		require('home/displayLastProd.phtml');
